@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Словари и множества — Справочник Python: первые программы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo"><div class="logo__icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 28C8 30 10 32 14 32H18L18 28L14 28C12 28 12 26 12 24V20C12 16 8 14 8 10C8 6 12 4 16 4H24C28 4 32 6 32 10V14C32 16 30 18 26 18H22L22 22L26 22C30 22 32 24 32 28C32 32 28 34 24 34H16" stroke="#306998" stroke-width="2.5" fill="none"/><path d="M32 12C32 10 30 8 26 8H22L22 12L26 12C28 12 28 14 28 16V20C28 24 32 26 32 30C32 34 28 36 24 36H16C12 36 8 34 8 30V26C8 24 10 22 14 22H18L18 18L14 18C10 18 8 16 8 12" stroke="#FFD43B" stroke-width="2.5" fill="none"/></svg></div><div class="logo__text"><span class="logo__title">Python</span><span class="logo__subtitle">первые программы</span></div></a>
+            <nav class="nav" id="mainNav"><ul class="nav__list"><li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li><li class="nav__item"><a href="lessons.html" class="nav__link">Уроки</a></li><li class="nav__item"><a href="reference.html" class="nav__link nav__link--active">Справочник</a></li><li class="nav__item"><a href="examples.html" class="nav__link">Примеры</a></li><li class="nav__item"><a href="playground.html" class="nav__link">Редактор</a></li></ul></nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему оформления"><svg class="theme-toggle__icon theme-toggle__icon--sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="theme-toggle__icon theme-toggle__icon--moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+            <button class="burger" id="burgerMenu" aria-label="Открыть меню"><span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span></button>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="lesson-layout">
+            <aside class="lesson-sidebar" id="lessonSidebar">
+                <div class="lesson-sidebar__header"><h3 class="lesson-sidebar__title">Разделы справочника</h3></div>
+                <nav class="lesson-nav">
+                    <a href="reference-types.html" class="lesson-nav__link">Типы данных</a>
+                    <a href="reference-operators.html" class="lesson-nav__link">Операторы</a>
+                    <a href="reference-conditionals.html" class="lesson-nav__link">Условные конструкции</a>
+                    <a href="reference-loops.html" class="lesson-nav__link">Циклы</a>
+                    <a href="reference-lists.html" class="lesson-nav__link">Списки и кортежи</a>
+                    <a href="reference-strings.html" class="lesson-nav__link">Строки</a>
+                    <a href="reference-dicts.html" class="lesson-nav__link lesson-nav__link--active">Словари и множества</a>
+                    <a href="reference-functions.html" class="lesson-nav__link">Функции</a>
+                </nav>
+            </aside>
+
+            <article class="lesson-content">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки"><ol class="breadcrumbs__list"><li class="breadcrumbs__item"><a href="index.html">Главная</a></li><li class="breadcrumbs__item"><a href="reference.html">Справочник</a></li><li class="breadcrumbs__item breadcrumbs__item--current">Словари и множества</li></ol></nav>
+
+                <h1 class="lesson-title">Словари и множества в Python</h1>
+
+                <!-- Словарь -->
+                <section class="lesson-section" id="dict">
+                    <h2>Словарь (dict)</h2>
+                    <p>Словарь — коллекция пар «ключ: значение». Ключи уникальны. Создаётся с помощью фигурных скобок <code>{}</code> или функции <code>dict()</code>.</p>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span><button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div><pre class="code-block__body"><code class="language-python">student = {
+    "name": "Алихан",
+    "age": 17,
+    "grade": "10А"
+}
+
+# Доступ по ключу
+print(student["name"])         # Алихан
+print(student.get("phone"))    # None (не вызывает ошибку)
+
+# Добавление / изменение
+student["city"] = "Нальчик"
+student["age"] = 18
+
+# Удаление
+del student["grade"]
+print(student)</code></pre></div>
+                </section>
+
+                <!-- Методы словарей -->
+                <section class="lesson-section" id="dict-methods">
+                    <h2>Методы словарей</h2>
+                    <table class="lesson-table">
+                        <thead><tr><th>Метод</th><th>Описание</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>.keys()</code></td><td>Возвращает все ключи</td></tr>
+                            <tr><td><code>.values()</code></td><td>Возвращает все значения</td></tr>
+                            <tr><td><code>.items()</code></td><td>Возвращает пары (ключ, значение)</td></tr>
+                            <tr><td><code>.get(key, default)</code></td><td>Значение по ключу (или default, если нет)</td></tr>
+                            <tr><td><code>.pop(key)</code></td><td>Удалить ключ и вернуть его значение</td></tr>
+                            <tr><td><code>.update(d2)</code></td><td>Обновить словарь данными из d2</td></tr>
+                            <tr><td><code>.clear()</code></td><td>Очистить словарь</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python — Перебор словаря</span><button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div><pre class="code-block__body"><code class="language-python">person = {"name": "Алихан", "age": 17, "city": "Нальчик"}
+
+# Перебор пар ключ-значение
+for key, value in person.items():
+    print(f"{key}: {value}")
+
+# Проверка наличия ключа
+if "name" in person:
+    print("Имя есть!")</code></pre></div>
+                </section>
+
+                <!-- Множество -->
+                <section class="lesson-section" id="set">
+                    <h2>Множество (set)</h2>
+                    <p>Множество — неупорядоченная коллекция <strong>уникальных</strong> элементов. Используется для удаления дубликатов и проверки вхождения.</p>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span><button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div><pre class="code-block__body"><code class="language-python">nums = {1, 2, 3, 2, 1, 4}
+print(nums)     # {1, 2, 3, 4} — дубликаты удалены
+
+# Удаление дубликатов из списка
+lst = [1, 2, 2, 3, 3, 3, 4]
+unique = list(set(lst))
+print(unique)   # [1, 2, 3, 4]
+
+# Операции над множествами
+a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+print(a | b)    # {1, 2, 3, 4, 5, 6} — объединение
+print(a & b)    # {3, 4}             — пересечение
+print(a - b)    # {1, 2}             — разность</code></pre></div>
+                    <div class="tip-block"><div class="tip-block__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div><div class="tip-block__text">Проверка <code>x in set</code> работает <strong>намного быстрее</strong>, чем <code>x in list</code>, особенно на больших данных — это одно из главных применений множества.</div></div>
+                </section>
+
+                <section class="related-links">
+                    <h3>Связанные статьи и уроки</h3>
+                    <ul>
+                        <li><a href="reference-lists.html">Списки и кортежи</a></li>
+                        <li><a href="lesson-08.html">Урок 8: Списки</a></li>
+                        <li><a href="lesson-10.html">Урок 10: Итоговый проект (пример с dict)</a></li>
+                    </ul>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col"><a href="index.html" class="logo logo--footer"><span class="logo__title">Python</span><span class="logo__subtitle">первые программы</span></a><p class="footer__about">Бесплатное обучающее веб-приложение для начинающих программистов. Создано в рамках преддипломной практики на базе МКОУ СОШ №15 г.о. Нальчик.</p></div>
+                <div class="footer__col"><h4 class="footer__heading">Разделы сайта</h4><ul class="footer__nav"><li><a href="lessons.html">Уроки</a></li><li><a href="reference.html">Справочник</a></li><li><a href="examples.html">Примеры кода</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Полезные ссылки</h4><ul class="footer__nav"><li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Официальный сайт Python</a></li><li><a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Документация Python</a></li><li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Скачать Python</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Место практики</h4><address class="footer__address"><p>МКОУ СОШ №15</p><p>г.о. Нальчик</p><p>Руководитель: Бачиева Ф.А.</p></address></div>
+            </div>
+            <div class="footer__bottom"><p class="footer__copyright">Python: первые программы.</p><p class="footer__author">Гергоков Алихан Жамбулатович, специальность «Информационные системы и программирование»</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

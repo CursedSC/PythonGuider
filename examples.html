@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Примеры кода на Python — Python: первые программы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo">
+                <div class="logo__icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 28C8 30 10 32 14 32H18L18 28L14 28C12 28 12 26 12 24V20C12 16 8 14 8 10C8 6 12 4 16 4H24C28 4 32 6 32 10V14C32 16 30 18 26 18H22L22 22L26 22C30 22 32 24 32 28C32 32 28 34 24 34H16" stroke="#306998" stroke-width="2.5" fill="none"/><path d="M32 12C32 10 30 8 26 8H22L22 12L26 12C28 12 28 14 28 16V20C28 24 32 26 32 30C32 34 28 36 24 36H16C12 36 8 34 8 30V26C8 24 10 22 14 22H18L18 18L14 18C10 18 8 16 8 12" stroke="#FFD43B" stroke-width="2.5" fill="none"/></svg></div>
+                <div class="logo__text"><span class="logo__title">Python</span><span class="logo__subtitle">первые программы</span></div>
+            </a>
+            <nav class="nav" id="mainNav"><ul class="nav__list">
+                <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                <li class="nav__item"><a href="lessons.html" class="nav__link">Уроки</a></li>
+                <li class="nav__item"><a href="reference.html" class="nav__link">Справочник</a></li>
+                <li class="nav__item"><a href="examples.html" class="nav__link nav__link--active">Примеры</a></li>
+                <li class="nav__item"><a href="playground.html" class="nav__link">Редактор</a></li>
+            </ul></nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему оформления">
+                <svg class="theme-toggle__icon theme-toggle__icon--sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg class="theme-toggle__icon theme-toggle__icon--moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+            <button class="burger" id="burgerMenu" aria-label="Открыть меню"><span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span></button>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-hero__title">Примеры кода на Python</h1>
+                <p class="page-hero__subtitle">Коллекция готовых решений типовых задач с подробными комментариями. Смотри, разбирай, экспериментируй!</p>
+            </div>
+        </section>
+
+        <!-- Фильтры -->
+        <section class="filters-section">
+            <div class="container container--narrow">
+                <div class="filters" id="filters">
+                    <button class="filter-btn filter-btn--active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="variables">Переменные</button>
+                    <button class="filter-btn" data-filter="conditions">Условия</button>
+                    <button class="filter-btn" data-filter="loops">Циклы</button>
+                    <button class="filter-btn" data-filter="lists">Списки</button>
+                    <button class="filter-btn" data-filter="functions">Функции</button>
+                    <button class="filter-btn" data-filter="strings">Строки</button>
+                    <button class="filter-btn" data-filter="files">Файлы</button>
+                    <button class="filter-btn" data-filter="oop">ООП</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Список примеров -->
+        <section class="examples-list-section">
+            <div class="container container--narrow">
+                <div class="examples-grid" id="examplesGrid">
+
+                    <!-- Пример 0а: Привет, мир! -->
+                    <article class="example-card" data-tags="variables">
+                        <div class="example-card__header">
+                            <h2 class="example-card__title">«Привет, мир!» — первая программа</h2>
+                            <div class="example-card__tags">
+                                <span class="tag">переменные</span>
+                                <span class="tag">вывод</span>
+                            </div>
+                        </div>
+                        <p class="example-card__desc">Традиционная первая программа каждого программиста. Знакомство с функцией <code>print()</code> и f-строками.</p>
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python"># Самая первая программа на Python
+print("Привет, мир!")
+
+# Вывод с переменной
+name = "Алихан"
+print(f"Привет, {name}! Добро пожаловать в мир Python.")
+
+# Несколько строк
+print("Python — это:")
+print("  - просто")
+print("  - мощно")
+print("  - интересно")</code></pre>
+                        </div>
+                        <button class="btn btn--secondary example-card__toggle">Как это работает?</button>
+                        <div class="example-card__explanation" style="display: none;">
+                            <p>Функция <code>print()</code> выводит текст на экран. Строки в кавычках называются <em>строковыми литералами</em>. <code>f"Привет, {name}"</code> — это f-строка: фигурные скобки подставляют значение переменной прямо в текст. Символ <code>#</code> начинает комментарий — строку, которую Python не выполняет.</p>
+                        </div>
+                    </article>
+
+                    <!-- Пример 0б: Угадай число -->
+                    <article class="example-card" data-tags="loops conditions functions">
+                        <div class="example-card__header">
+                            <h2 class="example-card__title">Игра «Угадай число»</h2>
+                            <div class="example-card__tags">
+                                <span class="tag">циклы</span>
+                                <span class="tag">условия</span>
+                                <span class="tag">функции</span>
+                                <span class="tag">random</span>
+                            </div>
+                        </div>
+                        <p class="example-card__desc">Программа загадывает случайное число, а игрок угадывает с подсказками. Используются модуль <code>random</code>, цикл <code>while</code> и условия.</p>
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">import random
+
+def play_game():
+    secret = random.randint(1, 100)
+    attempts = 0
+    max_attempts = 10
+
+    print("Я загадал число от 1 до 100.")
+    print(f"У тебя {max_attempts} попыток. Удачи!")
+
+    while attempts < max_attempts:
+        attempts += 1
+        try:
+            guess = int(input(f"Попытка {attempts}: "))
+        except ValueError:
+            print("Введи целое число!")
+            attempts -= 1
+            continue
+
+        if guess == secret:
+            print(f"Правильно! Ты угадал за {attempts} попыток.")
+            return
+        elif guess < secret:
+            print("Моё число больше.")
+        else:
+            print("Моё число меньше.")
+
+    print(f"Попытки закончились. Загаданное число: {secret}")
+
+play_game()</code></pre>
+                        </div>
+                        <button class="btn btn--secondary example-card__toggle">Как это работает?</button>
+                        <div class="example-card__explanation" style="display: none;">
+                            <p><code>random.randint(1, 100)</code> генерирует случайное целое число в диапазоне от 1 до 100 включительно. Цикл <code>while attempts &lt; max_attempts</code> продолжает игру, пока не израсходованы все попытки. Конструкция <code>try/except ValueError</code> защищает от ввода не-числа. Функция <code>play_game()</code> объединяет всю логику в одном месте — это хорошая практика.</p>
+                        </div>
+                    </article>
+
+                    <!-- Пример 1: Обмен значений -->
+                    <article class="example-card" data-tags="variables">
+                        <div class="example-card__header">
+                            <h2 class="example-card__title">Обмен значений двух переменных</h2>
+                            <div class="example-card__tags">
+                                <span class="tag">переменные</span>
+                            </div>
+                        </div>
+                        <p class="example-card__desc">Поменять местами значения двух переменных — классическая задача. В Python это делается в одну строку!</p>
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">a = 5
+b = 10
+print(f"До обмена: a = {a}, b = {b}")
+
+a, b = b, a  # Волшебная строка!
+
+print(f"После обмена: a = {a}, b = {b}")</code></pre>
+                        </div>
+                        <button class="btn btn--secondary example-card__toggle">Как это работает?</button>
+                        <div class="example-card__explanation" style="display: none;">
+                            <p>Конструкция <code>a, b = b, a</code> использует возможность Python присваивать значения нескольким переменным одновременно. Сначала вычисляются значения справа (<code>b, a</code>), затем они присваиваются переменным слева (<code>a, b</code>). Временная переменная не нужна!</p>
+                        </div>
+                    </article>
+
+                    <!-- Пример 2: Чётное/нечётное -->
+                    <article class="example-card" data-tags="conditions">
+                        <div class="example-card__header">
+                            <h2 class="example-card__title">Проверка числа на чётность</h2>
+                            <div class="example-card__tags"><span class="tag">условия</span><span class="tag">операторы</span></div>
+                        </div>
+                        <p class="example-card__desc">Классическая задача на использование условного оператора и оператора остатка от деления.</p>
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">number = int(input("Введи число: "))
+
+if number % 2 == 0:
+    print(f"{number} — чётное число")
+else:
+    print(f"{number} — нечётное число")</code></pre>
+                        </div>
+                        <button class="btn btn--secondary example-card__toggle">Как это работает?</button>
+                        <div class="example-card__explanation" style="display: none;">
+                            <p>Оператор <code>%</code> возвращает остаток от деления. Любое чётное число делится на 2 без остатка (остаток = 0). Нечётное — даёт остаток 1. Условие <code>number % 2 == 0</code> проверяет именно это.</p>
+                        </div>
+                    </article>
+
+                    <!-- Пример 3: Таблица умножения -->
+                    <article class="example-card" data-tags="loops">
+                        <div class="example-card__header">
+                            <h2 class="example-card__title">Таблица умножения</h2>
+                            <div class="example-card__tags"><span class="tag">циклы</span><span class="tag">вложенные циклы</span></div>
+                        </div>
+                        <p class="example-card__desc">Выводим таблицу умножения от 1 до 10 с помощью вложенных циклов for.</p>
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">print("Таблица умножения:\n")
+
+for i in range(1, 11):
+    for j in range(1, 11):
+        print(f"{i} × {j} = {i * j:2}", end="  ")
+    print()  # Переход на новую строку после каждой строки таблицы</code></pre>
+                        </div>
+                        <button class="btn btn--secondary example-card__toggle">Как это работает?</button>
+                        <div class="example-card__explanation" style="display: none;">
+                            <p>Внешний цикл <code>for i in range(1, 11)</code> перебирает числа от 1 до 10 (первый множитель). Внутренний цикл перебирает второй множитель. Выражение <code>{i * j:2}</code> форматирует результат, выделяя под него 2 символа для ровных колонок. После каждой строки таблицы <code>print()</code> переводит курсор на новую строку.</p>
+                        </div>
+                    </article>
+
+                    <!-- Пример 4: Сумма элементов списка -->
+                    <article class="example-card" data-tags="lists loops">
+                        <div class="example-card__header">
+                            <h2 class="example-card__title">Сумма всех элементов списка</h2>
+                            <div class="example-card__tags"><span class="tag">списки</span><span class="tag">циклы</span></div>
+                        </div>
+                        <p class="example-card__desc">Два способа найти сумму чисел в списке: с помощью цикла for и с помощью встроенной функции sum().</p>
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">numbers = [4, 8, 15, 16, 23, 42]
+
+# Способ 1: цикл for
+total = 0
+for num in numbers:
+    total += num
+print(f"Сумма (через цикл): {total}")
+
+# Способ 2: встроенная функция sum()
+print(f"Сумма (через sum): {sum(numbers)}")</code></pre>
+                        </div>
+                        <button class="btn btn--secondary example-card__toggle">Как это работает?</button>
+                        <div class="example-card__explanation" style="display: none;">
+                            <p>В первом способе мы проходим по каждому элементу списка и прибавляем его к переменной <code>total</code>. Второй способ — использование встроенной функции <code>sum()</code>, которая делает то же самое, но короче. Для учебных целей полезно понимать оба подхода.</p>
+                        </div>
+                    </article>
+
+                    <!-- Пример 5: Поиск максимума -->
+                    <article class="example-card" data-tags="loops conditions">
+                        <div class="example-card__header">
+                            <h2 class="example-card__title">Поиск максимального числа</h2>
+                            <div class="example-card__tags"><span class="tag">циклы</span><span class="tag">условия</span></div>
+                        </div>
+                        <p class="example-card__desc">Находим самое большое число в списке без использования встроенной функции max().</p>
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">numbers = [12, 45, 7, 89, 34, 2, 67]
+maximum = numbers[0]  # Начинаем с первого элемента
+
+for num in numbers:
+    if num > maximum:
+        maximum = num
+
+print(f"Максимальное число: {maximum}")</code></pre>
+                        </div>
+                        <button class="btn btn--secondary example-card__toggle">Как это работает?</button>
+                        <div class="example-card__explanation" style="display: none;">
+                            <p>Сначала мы предполагаем, что первый элемент — самый большой. Затем проходим по всем элементам списка. Если встречаем число больше текущего максимума — обновляем максимум. В конце цикла в <code>maximum</code> будет самое большое число.</p>
+                        </div>
+                    </article>
+
+                    <!-- Пример 6: Калькулятор с функциями -->
+                    <article class="example-card" data-tags="functions conditions">
+                        <div class="example-card__header">
+                            <h2 class="example-card__title">Простой калькулятор</h2>
+                            <div class="example-card__tags"><span class="tag">функции</span><span class="tag">условия</span></div>
+                        </div>
+                        <p class="example-card__desc">Программа-калькулятор с функциями для каждой операции. Хороший пример разделения кода на логические блоки.</p>
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b != 0:
+        return a / b
+    else:
+        return "Ошибка: деление на ноль!"
+
+a = float(input("Первое число: "))
+op = input("Операция (+, -, *, /): ")
+b = float(input("Второе число: "))
+
+if op == "+":
+    print(f"Результат: {add(a, b)}")
+elif op == "-":
+    print(f"Результат: {subtract(a, b)}")
+elif op == "*":
+    print(f"Результат: {multiply(a, b)}")
+elif op == "/":
+    print(f"Результат: {divide(a, b)}")
+else:
+    print("Неизвестная операция")</code></pre>
+                        </div>
+                        <button class="btn btn--secondary example-card__toggle">Как это работает?</button>
+                        <div class="example-card__explanation" style="display: none;">
+                            <p>Каждая арифметическая операция вынесена в отдельную функцию. Это делает код читаемым и удобным для расширения. Функция <code>divide()</code> проверяет, не равен ли делитель нулю. Основная программа запрашивает ввод и через <code>if-elif</code> выбирает нужную функцию.</p>
+                        </div>
+                    </article>
+
+                    <!-- Пример 7: FizzBuzz -->
+                    <article class="example-card" data-tags="loops conditions">
+                        <div class="example-card__header">
+                            <h2 class="example-card__title">Задача FizzBuzz</h2>
+                            <div class="example-card__tags"><span class="tag">циклы</span><span class="tag">условия</span></div>
+                        </div>
+                        <p class="example-card__desc">Классическая задача для тренировки циклов и условий: выводим числа от 1 до 20, заменяя кратные 3 и 5 на слова.</p>
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">for i in range(1, 21):
+    if i % 3 == 0 and i % 5 == 0:
+        print("FizzBuzz")
+    elif i % 3 == 0:
+        print("Fizz")
+    elif i % 5 == 0:
+        print("Buzz")
+    else:
+        print(i)</code></pre>
+                        </div>
+                        <button class="btn btn--secondary example-card__toggle">Как это работает?</button>
+                        <div class="example-card__explanation" style="display: none;">
+                            <p>Важный момент: проверка <code>i % 3 == 0 and i % 5 == 0</code> идёт первой. Если поставить её позже, числа кратные и 3, и 5 (например, 15) будут перехвачены проверками на кратность 3 или 5. Порядок условий в <code>if-elif</code> имеет значение!</p>
+                        </div>
+                    </article>
+
+                    <article class="example-card" data-tags="lists functions">
+                        <div class="example-card__header">
+                            <h2 class="example-card__title">Сортировка пузырьком</h2>
+                            <div class="example-card__tags"><span class="tag">списки</span><span class="tag">функции</span></div>
+                        </div>
+                        <p class="example-card__desc">Классический алгоритм сортировки: соседние элементы сравниваются и меняются местами, пока список не окажется упорядочен.</p>
+                        <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span><button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div><pre class="code-block__body"><code class="language-python">def bubble_sort(lst):
+    n = len(lst)
+    for i in range(n - 1):
+        for j in range(n - 1 - i):
+            if lst[j] > lst[j + 1]:
+                lst[j], lst[j + 1] = lst[j + 1], lst[j]
+    return lst
+
+numbers = [64, 34, 25, 12, 22, 11, 90]
+print(bubble_sort(numbers))  # [11, 12, 22, 25, 34, 64, 90]</code></pre></div>
+                        <button class="btn btn--secondary example-card__toggle">Как это работает?</button>
+                        <div class="example-card__explanation" style="display: none;">
+                            <p>За каждый проход внешнего цикла самый большой из оставшихся элементов «всплывает» в конец — отсюда название «пузырьковая». Внутренний цикл сужается на 1 каждую итерацию, т.к. хвост уже отсортирован.</p>
+                        </div>
+                    </article>
+
+                    <article class="example-card" data-tags="loops conditions">
+                        <div class="example-card__header">
+                            <h2 class="example-card__title">Проверка палиндрома</h2>
+                            <div class="example-card__tags"><span class="tag">циклы</span><span class="tag">условия</span></div>
+                        </div>
+                        <p class="example-card__desc">Определяем, является ли слово палиндромом — читается ли оно одинаково слева направо и справа налево.</p>
+                        <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span><button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div><pre class="code-block__body"><code class="language-python">def is_palindrome(word):
+    cleaned = word.lower().replace(" ", "")
+    return cleaned == cleaned[::-1]
+
+words = ["казак", "радар", "Python", "шалаш", "привет"]
+for w in words:
+    result = "палиндром" if is_palindrome(w) else "не палиндром"
+    print(f"{w}: {result}")</code></pre></div>
+                        <button class="btn btn--secondary example-card__toggle">Как это работает?</button>
+                        <div class="example-card__explanation" style="display: none;">
+                            <p>Трюк <code>[::-1]</code> переворачивает строку. Перед сравнением строка приводится к нижнему регистру и пробелы удаляются — чтобы работало и для «казак» с пробелами, если бы они были.</p>
+                        </div>
+                    </article>
+
+                    <article class="example-card" data-tags="variables loops">
+                        <div class="example-card__header">
+                            <h2 class="example-card__title">Числа Фибоначчи</h2>
+                            <div class="example-card__tags"><span class="tag">переменные</span><span class="tag">циклы</span></div>
+                        </div>
+                        <p class="example-card__desc">Генерируем последовательность Фибоначчи: каждое следующее число равно сумме двух предыдущих (1, 1, 2, 3, 5, 8, 13...).</p>
+                        <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span><button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div><pre class="code-block__body"><code class="language-python">n = 10  # Сколько чисел вывести
+a, b = 0, 1
+
+print("Числа Фибоначчи:")
+for i in range(n):
+    print(a, end=" ")
+    a, b = b, a + b
+
+# Вывод: 0 1 1 2 3 5 8 13 21 34</code></pre></div>
+                        <button class="btn btn--secondary example-card__toggle">Как это работает?</button>
+                        <div class="example-card__explanation" style="display: none;">
+                            <p>На каждой итерации одновременно обновляем оба числа: <code>a, b = b, a + b</code>. Это атомарное присвоение Python — правая часть вычисляется вся целиком прежде чем присвоить значения слева.</p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col"><a href="index.html" class="logo logo--footer"><span class="logo__title">Python</span><span class="logo__subtitle">первые программы</span></a><p class="footer__about">Бесплатное обучающее веб-приложение для начинающих программистов. Создано в рамках преддипломной практики на базе МКОУ СОШ №15 г.о. Нальчик.</p></div>
+                <div class="footer__col"><h4 class="footer__heading">Разделы сайта</h4><ul class="footer__nav"><li><a href="lessons.html">Уроки</a></li><li><a href="reference.html">Справочник</a></li><li><a href="examples.html">Примеры кода</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Полезные ссылки</h4><ul class="footer__nav"><li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Официальный сайт Python</a></li><li><a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Документация Python</a></li><li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Скачать Python</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Место практики</h4><address class="footer__address"><p>МКОУ СОШ №15</p><p>г.о. Нальчик</p><p>Руководитель: Бачиева Ф.А.</p></address></div>
+            </div>
+            <div class="footer__bottom"><p class="footer__copyright">Python: первые программы.</p><p class="footer__author">Гергоков Алихан Жамбулатович, специальность «Информационные системы и программирование»</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script>
+        // Фильтрация примеров
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const examples = document.querySelectorAll('.example-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Обновление активной кнопки
+                filterBtns.forEach(b => b.classList.remove('filter-btn--active'));
+                this.classList.add('filter-btn--active');
+
+                const filter = this.getAttribute('data-filter');
+
+                examples.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-tags').split(' ').includes(filter)) {
+                        card.style.display = '';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Раскрытие объяснений
+        document.querySelectorAll('.example-card__toggle').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const explanation = this.nextElementSibling;
+                if (explanation.style.display === 'none') {
+                    explanation.style.display = 'block';
+                    this.textContent = 'Скрыть объяснение';
+                } else {
+                    explanation.style.display = 'none';
+                    this.textContent = 'Как это работает?';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

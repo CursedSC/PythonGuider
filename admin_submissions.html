@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ответы учеников — Python: первые программы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        .admin-page { flex: 1; padding: 40px 0 60px; background: var(--bg-primary); }
+        .admin-hero {
+            background: linear-gradient(135deg, #1E2A3A 0%, #306998 60%, #1F4A73 100%);
+            padding: 36px 0;
+            color: white;
+            margin-bottom: 36px;
+        }
+        .admin-hero h1 { font-size: 1.6rem; font-weight: 800; margin: 0 0 4px; }
+        .admin-hero p  { opacity: 0.75; margin: 0; }
+        .admin-nav-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0;
+        }
+        .admin-nav-tabs a {
+            padding: 0.6rem 1.25rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px 8px 0 0;
+            border: 1px solid transparent;
+            border-bottom: none;
+            transition: all 0.15s;
+        }
+        .admin-nav-tabs a:hover { color: var(--color-primary); }
+        .admin-nav-tabs a.active {
+            color: var(--color-primary);
+            background: var(--bg-card);
+            border-color: var(--border-color);
+            border-bottom: 2px solid var(--bg-card);
+            margin-bottom: -2px;
+        }
+
+        /* Submission cards */
+        .submission-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            margin-bottom: 1.25rem;
+            overflow: hidden;
+        }
+        .submission-card__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .submission-card__meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .submission-card__avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent-dark));
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .submission-card__name { font-weight: 600; color: var(--text-primary); }
+        .submission-card__lesson { font-size: 0.85rem; color: var(--text-secondary); }
+        .submission-card__date  { font-size: 0.8rem; color: var(--text-muted); }
+        .submission-card__actions { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+        .submission-card__code {
+            background: #1e2228;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            max-height: 260px;
+            overflow: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+        .submission-card__code pre { margin: 0; padding: 1rem 1.5rem; }
+        .submission-card__note {
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+        .submission-card__note textarea {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            padding: 8px 12px;
+            font-size: 0.88rem;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        .badge--pending  { background: rgba(237,137,54,0.15); color: #C05621; }
+        .badge--approved { background: rgba(72,187,120,0.15); color: #276749; }
+        .badge--rejected { background: rgba(229,62,62,0.1);   color: #9b2c2c; }
+        [data-theme="dark"] .badge--pending  { color: #FBD38D; }
+        [data-theme="dark"] .badge--approved { color: #68d391; }
+        [data-theme="dark"] .badge--rejected { color: #fc8181; }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 1rem;
+            color: var(--text-secondary);
+        }
+        .empty-state svg { margin-bottom: 1rem; opacity: 0.35; }
+
+        /* Inline playground modal */
+        .playground-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.65);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .playground-modal.open { display: flex; }
+        .playground-modal__inner {
+            background: var(--bg-card);
+            border-radius: 16px;
+            width: 90vw;
+            max-width: 900px;
+            max-height: 88vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+        }
+        .playground-modal__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .playground-modal__header h2 { font-size: 1rem; margin: 0; color: var(--text-primary); }
+        .playground-modal__close {
+            background: none; border: none; cursor: pointer;
+            color: var(--text-secondary); font-size: 1.4rem; line-height: 1; padding: 4px;
+        }
+        .playground-modal__body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            flex: 1;
+            overflow: hidden;
+        }
+        .modal-editor {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.88rem;
+            background: #282C34;
+            color: #ABB2BF;
+            border: none;
+            outline: none;
+            resize: none;
+            padding: 16px;
+            flex: 1;
+            min-height: 300px;
+            tab-size: 4;
+        }
+        .modal-output {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.88rem;
+            background: #1E2228;
+            color: #98C379;
+            padding: 16px;
+            overflow: auto;
+            white-space: pre-wrap;
+            border-left: 2px solid rgba(255,255,255,0.06);
+        }
+        .modal-output.has-error { color: #E06C75; }
+        .playground-modal__footer {
+            padding: 0.75rem 1.5rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        @media (max-width: 640px) {
+            .playground-modal__body { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo">
+                <div class="logo__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 28C8 30 10 32 14 32H18L18 28L14 28C12 28 12 26 12 24V20C12 16 8 14 8 10C8 6 12 4 16 4H24C28 4 32 6 32 10V14C32 16 30 18 26 18H22L22 22L26 22C30 22 32 24 32 28C32 32 28 34 24 34H16" stroke="#306998" stroke-width="2.5" fill="none"/>
+                        <path d="M32 12C32 10 30 8 26 8H22L22 12L26 12C28 12 28 14 28 16V20C28 24 32 26 32 30C32 34 28 36 24 36H16C12 36 8 34 8 30V26C8 24 10 22 14 22H18L18 18L14 18C10 18 8 16 8 12" stroke="#FFD43B" stroke-width="2.5" fill="none"/>
+                    </svg>
+                </div>
+                <div class="logo__text">
+                    <span class="logo__title">Python</span>
+                    <span class="logo__subtitle">первые программы</span>
+                </div>
+            </a>
+            <nav class="nav" id="mainNav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="/" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="/admin" class="nav__link nav__link--active" style="color:var(--color-accent-dark)">&#9733; Админ</a></li>
+                    <li class="nav__item"><a href="/logout" class="nav__link" style="opacity:.75">Выйти</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему оформления">
+                <svg class="theme-toggle__icon theme-toggle__icon--sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg class="theme-toggle__icon theme-toggle__icon--moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+            <button class="burger" id="burgerMenu" aria-label="Открыть меню">
+                <span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="admin-hero">
+        <div class="container">
+            <h1>📋 Ответы учеников</h1>
+            <p>Проверяйте решения, запускайте код в редакторе и одобряйте или отклоняйте работы.</p>
+        </div>
+    </div>
+
+    <div class="admin-page">
+        <div class="container">
+            <!-- Вкладки -->
+            <div class="admin-nav-tabs">
+                <a href="/admin">👥 Пользователи</a>
+                <a href="/admin/submissions" class="active">📋 Ответы учеников</a>
+            </div>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for cat, msg in messages %}
+                <div class="flash flash--{{ cat }}" style="margin-bottom:1rem;padding:12px 18px;border-radius:10px;{% if cat=='success' %}background:rgba(72,187,120,0.12);color:#276749;border:1px solid rgba(72,187,120,0.3){% else %}background:rgba(229,62,62,0.1);color:#9b2c2c;border:1px solid rgba(229,62,62,0.25){% endif %}">
+                    {{ msg }}
+                </div>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            {% if submissions %}
+            <p style="color:var(--text-secondary);margin-bottom:1.5rem;">Всего ответов: <strong>{{ submissions|length }}</strong> — <span style="color:#276749">{{ submissions|selectattr('status','equalto','approved')|list|length }} одобрено</span> · <span style="color:#C05621">{{ submissions|selectattr('status','equalto','pending')|list|length }} на проверке</span> · <span style="color:#9b2c2c">{{ submissions|selectattr('status','equalto','rejected')|list|length }} отклонено</span></p>
+
+            {% for sub in submissions %}
+            <div class="submission-card">
+                <div class="submission-card__header">
+                    <div class="submission-card__meta">
+                        <div class="submission-card__avatar">{{ sub.username[0].upper() }}</div>
+                        <div>
+                            <div class="submission-card__name">{{ sub.username }}</div>
+                            <div class="submission-card__lesson">{{ sub.task_title }} · {{ sub.lesson }}</div>
+                        </div>
+                        <span class="badge badge--{{ sub.status }}">
+                            {% if sub.status == 'approved' %}✓ Одобрено
+                            {% elif sub.status == 'rejected' %}✗ Отклонено
+                            {% else %}⏳ На проверке{% endif %}
+                        </span>
+                        <span class="submission-card__date">{{ sub.created_at[:16] if sub.created_at else '' }}</span>
+                    </div>
+                    <div class="submission-card__actions">
+                        <button class="btn btn--secondary" style="font-size:0.85rem;padding:6px 14px;"
+                                onclick="openPlayground({{ sub.id }}, this.dataset.code)"
+                                data-code="{{ sub.student_code | e }}">
+                            ▶ В редакторе
+                        </button>
+                    </div>
+                </div>
+
+                <div class="submission-card__code">
+                    <pre><code class="language-python">{{ sub.student_code | e }}</code></pre>
+                </div>
+
+                <div class="submission-card__note">
+                    <form method="post" action="/admin/submissions/{{ sub.id }}/status" style="display:flex;gap:0.75rem;align-items:flex-end;flex-wrap:wrap;">
+                        <div style="flex:1;min-width:180px;">
+                            <label style="font-size:0.8rem;color:var(--text-secondary);display:block;margin-bottom:4px;">Комментарий для ученика</label>
+                            <textarea name="admin_note" rows="2" placeholder="Напиши замечание или похвалу...">{{ sub.admin_note or '' }}</textarea>
+                        </div>
+                        <div style="display:flex;gap:0.5rem;padding-bottom:2px;">
+                            <button type="submit" name="status" value="approved"
+                                    class="btn btn--primary" style="font-size:0.85rem;padding:8px 16px;background:#48BB78;border-color:#48BB78;">
+                                ✓ Одобрить
+                            </button>
+                            <button type="submit" name="status" value="rejected"
+                                    class="btn btn--secondary" style="font-size:0.85rem;padding:8px 16px;color:#E53E3E;border-color:rgba(229,62,62,0.4);"
+                                    onclick="return confirm('Отклонить работу ученика?')">
+                                ✗ Отклонить
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% else %}
+            <div class="empty-state">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                <h3 style="margin:0 0 0.5rem;">Ответов пока нет</h3>
+                <p>Ученики ещё не отправили свои решения. Как только появятся — они отобразятся здесь.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Модальный редактор -->
+    <div class="playground-modal" id="playgroundModal">
+        <div class="playground-modal__inner">
+            <div class="playground-modal__header">
+                <h2>Редактор — проверка работы ученика</h2>
+                <button class="playground-modal__close" onclick="closePlayground()">×</button>
+            </div>
+            <div class="playground-modal__body">
+                <textarea class="modal-editor" id="modalEditor" spellcheck="false"
+                          placeholder="# Код ученика загружается..."></textarea>
+                <div class="modal-output" id="modalOutput">Нажми «Запустить» чтобы проверить код...</div>
+            </div>
+            <div class="playground-modal__footer">
+                <button class="btn btn--primary" onclick="runModalCode()" id="modalRunBtn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:5px"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Запустить
+                </button>
+                <button class="btn btn--secondary" onclick="document.getElementById('modalOutput').textContent='';document.getElementById('modalOutput').className='modal-output'">Очистить</button>
+                <span style="font-size:0.8rem;color:var(--text-secondary);margin-left:auto;">Ctrl+Enter — запустить</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col"><a href="index.html" class="logo logo--footer"><span class="logo__title">Python</span><span class="logo__subtitle">первые программы</span></a><p class="footer__about">Создано в рамках преддипломной практики на базе МКОУ СОШ №15 г.о. Нальчик.</p></div>
+                <div class="footer__col"><h4 class="footer__heading">Разделы</h4><ul class="footer__nav"><li><a href="/admin">Пользователи</a></li><li><a href="/admin/submissions">Ответы</a></li></ul></div>
+            </div>
+            <div class="footer__bottom"><p class="footer__copyright">Python: первые программы.</p><p class="footer__author">Гергоков Алихан Жамбулатович</p></div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <!-- Skulpt для запуска Python в браузере -->
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script>
+        function openPlayground(subId, code) {
+            document.getElementById('modalEditor').value = code || '';
+            document.getElementById('modalOutput').textContent = 'Нажми «Запустить» чтобы проверить код...';
+            document.getElementById('modalOutput').className = 'modal-output';
+            document.getElementById('playgroundModal').classList.add('open');
+        }
+
+        function closePlayground() {
+            document.getElementById('playgroundModal').classList.remove('open');
+        }
+
+        // Закрыть по клику на фон
+        document.getElementById('playgroundModal').addEventListener('click', function(e) {
+            if (e.target === this) closePlayground();
+        });
+
+        // Skulpt runner
+        var modalOutputBuffer = '';
+
+        function builtinRead(x) {
+            if (Sk.builtinFiles === undefined || Sk.builtinFiles.files[x] === undefined)
+                throw "Файл не найден: '" + x + "'";
+            return Sk.builtinFiles.files[x];
+        }
+
+        function runModalCode() {
+            var code = document.getElementById('modalEditor').value;
+            var output = document.getElementById('modalOutput');
+            modalOutputBuffer = '';
+            output.className = 'modal-output';
+            output.textContent = '';
+
+            Sk.configure({
+                output: function(text) {
+                    modalOutputBuffer += text;
+                    output.textContent = modalOutputBuffer;
+                },
+                read: builtinRead,
+                inputfun: function(prompt) {
+                    return new Promise(function(resolve) {
+                        resolve(window.prompt(prompt || '') || '');
+                    });
+                },
+                inputfunTakesPrompt: true,
+                __future__: Sk.python3,
+            });
+
+            var runBtn = document.getElementById('modalRunBtn');
+            runBtn.disabled = true;
+            runBtn.textContent = '⏳ Выполняется...';
+
+            Sk.misceval.asyncToPromise(function() {
+                return Sk.importMainWithBody('<stdin>', false, code, true);
+            }).then(function() {
+                if (!modalOutputBuffer) {
+                    output.textContent = '(Программа завершена без вывода)';
+                    output.style.color = 'rgba(171,178,191,0.5)';
+                }
+            }).catch(function(err) {
+                output.className = 'modal-output has-error';
+                output.textContent = err.toString();
+            }).finally(function() {
+                runBtn.disabled = false;
+                runBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:5px"><polygon points="5 3 19 12 5 21 5 3"/></svg>Запустить';
+            });
+        }
+
+        // Ctrl+Enter в редакторе модалки
+        document.getElementById('modalEditor').addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                e.preventDefault();
+                runModalCode();
+            }
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                var s = this.selectionStart, en = this.selectionEnd;
+                this.value = this.value.substring(0, s) + '    ' + this.value.substring(en);
+                this.selectionStart = this.selectionEnd = s + 4;
+            }
+        });
+    </script>
+</body>
+</html>

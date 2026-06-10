@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уроки Python — Python: первые программы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo">
+                <div class="logo__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 28C8 30 10 32 14 32H18L18 28L14 28C12 28 12 26 12 24V20C12 16 8 14 8 10C8 6 12 4 16 4H24C28 4 32 6 32 10V14C32 16 30 18 26 18H22L22 22L26 22C30 22 32 24 32 28C32 32 28 34 24 34H16" stroke="#306998" stroke-width="2.5" fill="none"/>
+                        <path d="M32 12C32 10 30 8 26 8H22L22 12L26 12C28 12 28 14 28 16V20C28 24 32 26 32 30C32 34 28 36 24 36H16C12 36 8 34 8 30V26C8 24 10 22 14 22H18L18 18L14 18C10 18 8 16 8 12" stroke="#FFD43B" stroke-width="2.5" fill="none"/>
+                    </svg>
+                </div>
+                <div class="logo__text">
+                    <span class="logo__title">Python</span>
+                    <span class="logo__subtitle">первые программы</span>
+                </div>
+            </a>
+            <nav class="nav" id="mainNav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="lessons.html" class="nav__link nav__link--active">Уроки</a></li>
+                    <li class="nav__item"><a href="reference.html" class="nav__link">Справочник</a></li>
+                    <li class="nav__item"><a href="examples.html" class="nav__link">Примеры</a></li>
+                    <li class="nav__item"><a href="playground.html" class="nav__link">Редактор</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему оформления">
+                <svg class="theme-toggle__icon theme-toggle__icon--sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="theme-toggle__icon theme-toggle__icon--moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+            <button class="burger" id="burgerMenu" aria-label="Открыть меню">
+                <span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-hero__title">Уроки Python для начинающих</h1>
+                <p class="page-hero__subtitle">18 подробных уроков от установки Python до создания собственных классов и проектов. Начни с первого урока и двигайся последовательно — каждый следующий урок опирается на предыдущий.</p>
+                <a href="lesson-01.html" class="btn btn--primary btn--large">Начать с первого урока</a>
+            </div>
+        </section>
+
+        <section class="lessons-list-section">
+            <div class="container container--narrow">
+                <div class="lessons-grid">
+                    <!-- Урок 1 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">1</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-01.html">Что такое Python и как он работает</a></h2>
+                            <p class="lesson-card__desc">Познакомимся с языком Python, узнаем его историю, возможности и области применения. Разберёмся, почему Python — лучший выбор для первого языка программирования.</p>
+                            <div class="lesson-card__meta">
+                                <span class="badge badge--time">≈ 10 мин</span>
+                                <span class="badge badge--level">Начальный</span>
+                            </div>
+                        </div>
+                        <a href="lesson-01.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 2 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">2</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-02.html">Установка Python и первый запуск</a></h2>
+                            <p class="lesson-card__desc">Установим Python на компьютер, познакомимся со средой разработки IDLE и запустим нашу самую первую программу.</p>
+                            <div class="lesson-card__meta">
+                                <span class="badge badge--time">≈ 15 мин</span>
+                                <span class="badge badge--level">Начальный</span>
+                            </div>
+                        </div>
+                        <a href="lesson-02.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 3 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">3</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-03.html">Переменные и типы данных</a></h2>
+                            <p class="lesson-card__desc">Узнаем, что такое переменные и как хранить в них данные. Познакомимся с основными типами данных: числа, строки и логический тип.</p>
+                            <div class="lesson-card__meta">
+                                <span class="badge badge--time">≈ 20 мин</span>
+                                <span class="badge badge--level">Начальный</span>
+                            </div>
+                        </div>
+                        <a href="lesson-03.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 4 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">4</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-04.html">Ввод и вывод данных</a></h2>
+                            <p class="lesson-card__desc">Научимся выводить данные на экран с помощью print() и запрашивать информацию у пользователя через input().</p>
+                            <div class="lesson-card__meta">
+                                <span class="badge badge--time">≈ 15 мин</span>
+                                <span class="badge badge--level">Начальный</span>
+                            </div>
+                        </div>
+                        <a href="lesson-04.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 5 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">5</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-05.html">Условный оператор if-else</a></h2>
+                            <p class="lesson-card__desc">Научим программу принимать решения! Разберём условный оператор if-elif-else и научимся создавать разветвляющиеся алгоритмы.</p>
+                            <div class="lesson-card__meta">
+                                <span class="badge badge--time">≈ 20 мин</span>
+                                <span class="badge badge--level">Базовый</span>
+                            </div>
+                        </div>
+                        <a href="lesson-05.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 6 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">6</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-06.html">Циклы while</a></h2>
+                            <p class="lesson-card__desc">Познакомимся с циклами — конструкцией, позволяющей повторять действия много раз. Начнём с цикла while.</p>
+                            <div class="lesson-card__meta">
+                                <span class="badge badge--time">≈ 20 мин</span>
+                                <span class="badge badge--level">Базовый</span>
+                            </div>
+                        </div>
+                        <a href="lesson-06.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 7 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">7</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-07.html">Циклы for</a></h2>
+                            <p class="lesson-card__desc">Освоим цикл for — самый удобный способ перебора элементов. Научимся работать с функцией range() и перебирать строки.</p>
+                            <div class="lesson-card__meta">
+                                <span class="badge badge--time">≈ 20 мин</span>
+                                <span class="badge badge--level">Базовый</span>
+                            </div>
+                        </div>
+                        <a href="lesson-07.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 8 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">8</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-08.html">Списки</a></h2>
+                            <p class="lesson-card__desc">Узнаем, как хранить множество элементов в одной переменной с помощью списков. Научимся добавлять, удалять и изменять элементы.</p>
+                            <div class="lesson-card__meta">
+                                <span class="badge badge--time">≈ 25 мин</span>
+                                <span class="badge badge--level">Средний</span>
+                            </div>
+                        </div>
+                        <a href="lesson-08.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 9 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">9</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-09.html">Функции</a></h2>
+                            <p class="lesson-card__desc">Научимся создавать собственные функции — важнейший инструмент для структурирования кода и избежания повторений.</p>
+                            <div class="lesson-card__meta">
+                                <span class="badge badge--time">≈ 25 мин</span>
+                                <span class="badge badge--level">Средний</span>
+                            </div>
+                        </div>
+                        <a href="lesson-09.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 10 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">10</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-10.html">Итоговый проект: Записная книжка</a></h2>
+                            <p class="lesson-card__desc">Применим все знания курса в одном проекте! Создадим консольную записную книжку с добавлением, поиском и удалением контактов.</p>
+                            <div class="lesson-card__meta">
+                                <span class="badge badge--time">≈ 30 мин</span>
+                                <span class="badge badge--level">Средний</span>
+                            </div>
+                        </div>
+                        <a href="lesson-10.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 11 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">11</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-11.html">Работа с файлами</a></h2>
+                            <p class="lesson-card__desc">Научимся читать и записывать данные в текстовые файлы с помощью open() и оператора with. Узнаем, как сохранять информацию между запусками программы.</p>
+                            <div class="lesson-card__meta"><span class="badge badge--time">≈ 20 мин</span><span class="badge badge--level">Средний</span></div>
+                        </div>
+                        <a href="lesson-11.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 12 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">12</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-12.html">Исключения: try / except</a></h2>
+                            <p class="lesson-card__desc">Узнаем, как перехватывать ошибки в программе и реагировать на них корректно с помощью конструкций try, except, else и finally.</p>
+                            <div class="lesson-card__meta"><span class="badge badge--time">≈ 20 мин</span><span class="badge badge--level">Средний</span></div>
+                        </div>
+                        <a href="lesson-12.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 13 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">13</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-13.html">Модули math и random</a></h2>
+                            <p class="lesson-card__desc">Знакомимся со стандартной библиотекой Python: изучаем math для математических вычислений и random для генерации случайных чисел.</p>
+                            <div class="lesson-card__meta"><span class="badge badge--time">≈ 15 мин</span><span class="badge badge--level">Начальный</span></div>
+                        </div>
+                        <a href="lesson-13.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 14 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">14</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-14.html">Генераторы списков</a></h2>
+                            <p class="lesson-card__desc">Компактный и «питонический» способ создавать списки на основе других последовательностей — list comprehension и dict comprehension.</p>
+                            <div class="lesson-card__meta"><span class="badge badge--time">≈ 20 мин</span><span class="badge badge--level">Средний</span></div>
+                        </div>
+                        <a href="lesson-14.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 15 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">15</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-15.html">Словари: углублённо</a></h2>
+                            <p class="lesson-card__desc">Вложенные словари, сортировка по значениям, подсчёт частот и группировка данных — продвинутые паттерны работы с dict.</p>
+                            <div class="lesson-card__meta"><span class="badge badge--time">≈ 20 мин</span><span class="badge badge--level">Средний</span></div>
+                        </div>
+                        <a href="lesson-15.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 16 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">16</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-16.html">Основы объектно-ориентированного программирования</a></h2>
+                            <p class="lesson-card__desc">Знакомимся с классами и объектами. Изучаем __init__, self, методы и магические методы — мощный способ организации кода.</p>
+                            <div class="lesson-card__meta"><span class="badge badge--time">≈ 30 мин</span><span class="badge badge--level">Продвинутый</span></div>
+                        </div>
+                        <a href="lesson-16.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 17 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">17</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-17.html">Рекурсия</a></h2>
+                            <p class="lesson-card__desc">Функции, которые вызывают сами себя. Разбираем принцип на примере факториала, чисел Фибоначчи и обхода вложенных структур.</p>
+                            <div class="lesson-card__meta"><span class="badge badge--time">≈ 25 мин</span><span class="badge badge--level">Продвинутый</span></div>
+                        </div>
+                        <a href="lesson-17.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+
+                    <!-- Урок 18 -->
+                    <article class="lesson-card">
+                        <div class="lesson-card__number">18</div>
+                        <div class="lesson-card__content">
+                            <h2 class="lesson-card__title"><a href="lesson-18.html">Итоговый проект 2: «Угадай число»</a></h2>
+                            <p class="lesson-card__desc">Финальный проект: игра с уровнями сложности, подсказками, счётчиком очков и сохранением рекорда в файл. Применяем всё изученное!</p>
+                            <div class="lesson-card__meta"><span class="badge badge--time">≈ 35 мин</span><span class="badge badge--level">Средний</span></div>
+                        </div>
+                        <a href="lesson-18.html" class="btn btn--primary lesson-card__btn">Начать</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <a href="index.html" class="logo logo--footer">
+                        <span class="logo__title">Python</span>
+                        <span class="logo__subtitle">первые программы</span>
+                    </a>
+                    <p class="footer__about">Бесплатное обучающее веб-приложение для начинающих программистов. Создано в рамках преддипломной практики на базе МКОУ СОШ №15 г.о. Нальчик.</p>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Разделы сайта</h4>
+                    <ul class="footer__nav">
+                        <li><a href="lessons.html">Уроки</a></li>
+                        <li><a href="reference.html">Справочник</a></li>
+                        <li><a href="examples.html">Примеры кода</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Полезные ссылки</h4>
+                    <ul class="footer__nav">
+                        <li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Официальный сайт Python</a></li>
+                        <li><a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Документация Python</a></li>
+                        <li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Скачать Python</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Место практики</h4>
+                    <address class="footer__address">
+                        <p>МКОУ СОШ №15</p><p>г.о. Нальчик</p><p>Руководитель: Бачиева Ф.А.</p>
+                    </address>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">Python: первые программы.</p>
+                <p class="footer__author">Гергоков Алихан Жамбулатович, специальность «Информационные системы и программирование»</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

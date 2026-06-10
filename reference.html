@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Справочник по Python — Python: первые программы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo">
+                <div class="logo__icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 28C8 30 10 32 14 32H18L18 28L14 28C12 28 12 26 12 24V20C12 16 8 14 8 10C8 6 12 4 16 4H24C28 4 32 6 32 10V14C32 16 30 18 26 18H22L22 22L26 22C30 22 32 24 32 28C32 32 28 34 24 34H16" stroke="#306998" stroke-width="2.5" fill="none"/><path d="M32 12C32 10 30 8 26 8H22L22 12L26 12C28 12 28 14 28 16V20C28 24 32 26 32 30C32 34 28 36 24 36H16C12 36 8 34 8 30V26C8 24 10 22 14 22H18L18 18L14 18C10 18 8 16 8 12" stroke="#FFD43B" stroke-width="2.5" fill="none"/></svg></div>
+                <div class="logo__text"><span class="logo__title">Python</span><span class="logo__subtitle">первые программы</span></div>
+            </a>
+            <nav class="nav" id="mainNav"><ul class="nav__list">
+                <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                <li class="nav__item"><a href="lessons.html" class="nav__link">Уроки</a></li>
+                <li class="nav__item"><a href="reference.html" class="nav__link nav__link--active">Справочник</a></li>
+                <li class="nav__item"><a href="examples.html" class="nav__link">Примеры</a></li>
+                <li class="nav__item"><a href="playground.html" class="nav__link">Редактор</a></li>
+            </ul></nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему оформления">
+                <svg class="theme-toggle__icon theme-toggle__icon--sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg class="theme-toggle__icon theme-toggle__icon--moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+            <button class="burger" id="burgerMenu" aria-label="Открыть меню"><span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span></button>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="page-hero page-hero--reference">
+            <div class="container">
+                <h1 class="page-hero__title">Справочник по Python</h1>
+                <p class="page-hero__subtitle">Структурированный каталог команд, операторов и конструкций языка Python с простыми объяснениями и примерами. Всё, что нужно — в одном месте.</p>
+                <!-- Поиск -->
+                <div class="search-box">
+                    <svg class="search-box__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input type="text" class="search-box__input" id="refSearch" placeholder="Поиск по справочнику...">
+                </div>
+            </div>
+        </section>
+
+        <section class="reference-categories">
+            <div class="container container--narrow">
+                <div class="ref-grid" id="refGrid">
+                    <!-- Категория 1 -->
+                    <article class="ref-category" data-category="типы данных">
+                        <div class="ref-category__icon ref-category__icon--blue">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                        </div>
+                        <h2 class="ref-category__title"><a href="reference-types.html">Типы данных</a></h2>
+                        <p class="ref-category__desc">Числа (int, float), строки (str), булевы значения (bool) — фундамент любой программы.</p>
+                        <ul class="ref-category__links">
+                            <li><a href="reference-types.html#int-float">int и float (числа)</a></li>
+                            <li><a href="reference-types.html#str">str (строки)</a></li>
+                            <li><a href="reference-types.html#bool">bool (логический тип)</a></li>
+                        </ul>
+                    </article>
+
+                    <!-- Категория 2 -->
+                    <article class="ref-category" data-category="операторы">
+                        <div class="ref-category__icon ref-category__icon--yellow">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                        </div>
+                        <h2 class="ref-category__title"><a href="reference-operators.html">Операторы</a></h2>
+                        <p class="ref-category__desc">Арифметические, сравнения, логические и операторы присваивания.</p>
+                        <ul class="ref-category__links">
+                            <li><a href="reference-operators.html#arithmetic">Арифметические</a></li>
+                            <li><a href="reference-operators.html#comparison">Сравнения</a></li>
+                            <li><a href="reference-operators.html#logical">Логические</a></li>
+                        </ul>
+                    </article>
+
+                    <!-- Категория 3 -->
+                    <article class="ref-category" data-category="условия">
+                        <div class="ref-category__icon ref-category__icon--green">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                        </div>
+                        <h2 class="ref-category__title"><a href="reference-conditionals.html">Условные конструкции</a></h2>
+                        <p class="ref-category__desc">if, elif, else — учим программу принимать решения.</p>
+                        <ul class="ref-category__links">
+                            <li><a href="reference-conditionals.html#if">if-elif-else</a></li>
+                            <li><a href="reference-conditionals.html#match">match-case</a></li>
+                        </ul>
+                    </article>
+
+                    <!-- Категория 4 -->
+                    <article class="ref-category" data-category="циклы">
+                        <div class="ref-category__icon ref-category__icon--blue">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                        </div>
+                        <h2 class="ref-category__title"><a href="reference-loops.html">Циклы</a></h2>
+                        <p class="ref-category__desc">while и for — повторяем действия многократно. Функция range().</p>
+                        <ul class="ref-category__links">
+                            <li><a href="reference-loops.html#while">while</a></li>
+                            <li><a href="reference-loops.html#for">for</a></li>
+                            <li><a href="reference-loops.html#range">range()</a></li>
+                        </ul>
+                    </article>
+
+                    <!-- Категория 5 -->
+                    <article class="ref-category" data-category="списки">
+                        <div class="ref-category__icon ref-category__icon--yellow">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                        </div>
+                        <h2 class="ref-category__title"><a href="reference-lists.html">Списки и кортежи</a></h2>
+                        <p class="ref-category__desc">Хранение множества элементов. Индексация, срезы, методы списков.</p>
+                        <ul class="ref-category__links">
+                            <li><a href="reference-lists.html#list">list (списки)</a></li>
+                            <li><a href="reference-lists.html#list-methods">Методы списков</a></li>
+                            <li><a href="reference-lists.html#tuple">tuple (кортежи)</a></li>
+                        </ul>
+                    </article>
+
+                    <!-- Категория 6 -->
+                    <article class="ref-category" data-category="строки">
+                        <div class="ref-category__icon ref-category__icon--green">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
+                        </div>
+                        <h2 class="ref-category__title"><a href="reference-strings.html">Строки</a></h2>
+                        <p class="ref-category__desc">Работа с текстом: методы строк, форматирование, срезы строк.</p>
+                        <ul class="ref-category__links">
+                            <li><a href="reference-strings.html#creation">Создание и срезы строк</a></li>
+                            <li><a href="reference-strings.html#methods">Методы строк</a></li>
+                            <li><a href="reference-strings.html#fstrings">f-строки</a></li>
+                        </ul>
+                    </article>
+
+                    <!-- Категория 7 -->
+                    <article class="ref-category" data-category="словари">
+                        <div class="ref-category__icon ref-category__icon--blue">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        </div>
+                        <h2 class="ref-category__title"><a href="reference-dicts.html">Словари и множества</a></h2>
+                        <p class="ref-category__desc">Структуры данных для хранения пар «ключ-значение» и уникальных элементов.</p>
+                        <ul class="ref-category__links">
+                            <li><a href="reference-dicts.html#dict">dict (словари)</a></li>
+                            <li><a href="reference-dicts.html#set">set (множества)</a></li>
+                        </ul>
+                    </article>
+
+                    <!-- Категория 8 -->
+                    <article class="ref-category" data-category="функции">
+                        <div class="ref-category__icon ref-category__icon--yellow">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                        </div>
+                        <h2 class="ref-category__title"><a href="reference-functions.html">Функции</a></h2>
+                        <p class="ref-category__desc">Создание собственных функций: def, return, аргументы и область видимости.</p>
+                        <ul class="ref-category__links">
+                            <li><a href="reference-functions.html#def">def и return</a></li>
+                            <li><a href="reference-functions.html#arguments">Аргументы</a></li>
+                        </ul>
+                    </article>
+
+                    <!-- Категория 9 -->
+                    <article class="ref-category" data-category="встроенные функции">
+                        <div class="ref-category__icon ref-category__icon--green">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                        </div>
+                        <h2 class="ref-category__title"><a href="reference-builtins.html">Встроенные функции</a></h2>
+                        <p class="ref-category__desc">len, range, enumerate, zip, map, filter, sorted и другие функции, доступные без импорта.</p>
+                        <ul class="ref-category__links">
+                            <li><a href="reference-builtins.html#basic">Основные (print, input, type)</a></li>
+                            <li><a href="reference-builtins.html#collections">Коллекции (min, max, sorted)</a></li>
+                            <li><a href="reference-builtins.html#enumerate-zip">enumerate() и zip()</a></li>
+                        </ul>
+                    </article>
+
+                    <!-- Категория 10 -->
+                    <article class="ref-category" data-category="генераторы списков comprehension">
+                        <div class="ref-category__icon ref-category__icon--blue">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        </div>
+                        <h2 class="ref-category__title"><a href="reference-comprehensions.html">Генераторы списков</a></h2>
+                        <p class="ref-category__desc">List comprehension, dict comprehension, set comprehension и генераторные выражения.</p>
+                        <ul class="ref-category__links">
+                            <li><a href="reference-comprehensions.html#list-comp">List comprehension</a></li>
+                            <li><a href="reference-comprehensions.html#dict-comp">Dict comprehension</a></li>
+                            <li><a href="reference-comprehensions.html#set-comp">Set comprehension</a></li>
+                        </ul>
+                    </article>
+
+                    <!-- Категория 11 -->
+                    <article class="ref-category" data-category="файлы ввод вывод">
+                        <div class="ref-category__icon ref-category__icon--yellow">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        </div>
+                        <h2 class="ref-category__title"><a href="reference-files.html">Работа с файлами</a></h2>
+                        <p class="ref-category__desc">Открытие, чтение и запись файлов. Оператор with, режимы открытия, модуль os.</p>
+                        <ul class="ref-category__links">
+                            <li><a href="reference-files.html#open">open() и режимы</a></li>
+                            <li><a href="reference-files.html#with">Оператор with</a></li>
+                            <li><a href="reference-files.html#os">Модуль os</a></li>
+                        </ul>
+                    </article>
+
+                    <!-- Категория 12 -->
+                    <article class="ref-category" data-category="исключения ошибки">
+                        <div class="ref-category__icon ref-category__icon--green">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        </div>
+                        <h2 class="ref-category__title"><a href="reference-exceptions.html">Исключения</a></h2>
+                        <p class="ref-category__desc">try / except / else / finally — обработка ошибок. Типы исключений и оператор raise.</p>
+                        <ul class="ref-category__links">
+                            <li><a href="reference-exceptions.html#syntax">Синтаксис try/except</a></li>
+                            <li><a href="reference-exceptions.html#common">Типы исключений</a></li>
+                            <li><a href="reference-exceptions.html#raise">raise</a></li>
+                        </ul>
+                    </article>
+
+                    <!-- Категория 13 -->
+                    <article class="ref-category" data-category="модули math random os">
+                        <div class="ref-category__icon ref-category__icon--blue">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+                        </div>
+                        <h2 class="ref-category__title"><a href="reference-modules.html">Стандартные модули</a></h2>
+                        <p class="ref-category__desc">math, random, os, sys — наиболее полезные модули из стандартной библиотеки Python.</p>
+                        <ul class="ref-category__links">
+                            <li><a href="reference-modules.html#math">math</a></li>
+                            <li><a href="reference-modules.html#random">random</a></li>
+                            <li><a href="reference-modules.html#os">os и sys</a></li>
+                        </ul>
+                    </article>
+
+                    <!-- Категория 14 -->
+                    <article class="ref-category" data-category="ооп классы объекты">
+                        <div class="ref-category__icon ref-category__icon--yellow">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8l-2 4h12z"/></svg>
+                        </div>
+                        <h2 class="ref-category__title"><a href="reference-oop.html">Основы ООП</a></h2>
+                        <p class="ref-category__desc">Классы, объекты, __init__, self, методы, наследование и магические методы.</p>
+                        <ul class="ref-category__links">
+                            <li><a href="reference-oop.html#class">Класс и объект</a></li>
+                            <li><a href="reference-oop.html#magic">Магические методы</a></li>
+                            <li><a href="reference-oop.html#inheritance">Наследование</a></li>
+                        </ul>
+                    </article>
+
+                    <!-- Категория 15 -->
+                    <article class="ref-category" data-category="lambda функции map filter">
+                        <div class="ref-category__icon ref-category__icon--green">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l4 8 4-4 4 8"/><line x1="4" y1="20" x2="20" y2="20"/></svg>
+                        </div>
+                        <h2 class="ref-category__title"><a href="reference-lambda.html">lambda, map и filter</a></h2>
+                        <p class="ref-category__desc">Анонимные функции lambda, функции высшего порядка map(), filter() и reduce().</p>
+                        <ul class="ref-category__links">
+                            <li><a href="reference-lambda.html#lambda">lambda</a></li>
+                            <li><a href="reference-lambda.html#map-filter">map() и filter()</a></li>
+                            <li><a href="reference-lambda.html#sorted-key">lambda в sorted()</a></li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col"><a href="index.html" class="logo logo--footer"><span class="logo__title">Python</span><span class="logo__subtitle">первые программы</span></a><p class="footer__about">Бесплатное обучающее веб-приложение для начинающих программистов. Создано в рамках преддипломной практики на базе МКОУ СОШ №15 г.о. Нальчик.</p></div>
+                <div class="footer__col"><h4 class="footer__heading">Разделы сайта</h4><ul class="footer__nav"><li><a href="lessons.html">Уроки</a></li><li><a href="reference.html">Справочник</a></li><li><a href="examples.html">Примеры кода</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Полезные ссылки</h4><ul class="footer__nav"><li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Официальный сайт Python</a></li><li><a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Документация Python</a></li><li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Скачать Python</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Место практики</h4><address class="footer__address"><p>МКОУ СОШ №15</p><p>г.о. Нальчик</p><p>Руководитель: Бачиева Ф.А.</p></address></div>
+            </div>
+            <div class="footer__bottom"><p class="footer__copyright">Python: первые программы.</p><p class="footer__author">Гергоков Алихан Жамбулатович, специальность «Информационные системы и программирование»</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Клиентский поиск по справочнику
+        document.getElementById('refSearch').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const categories = document.querySelectorAll('.ref-category');
+            categories.forEach(cat => {
+                const text = cat.getAttribute('data-category') + ' ' + cat.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    cat.style.display = '';
+                } else {
+                    cat.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

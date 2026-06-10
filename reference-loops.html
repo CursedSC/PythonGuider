@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Циклы — Справочник Python: первые программы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo"><div class="logo__icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 28C8 30 10 32 14 32H18L18 28L14 28C12 28 12 26 12 24V20C12 16 8 14 8 10C8 6 12 4 16 4H24C28 4 32 6 32 10V14C32 16 30 18 26 18H22L22 22L26 22C30 22 32 24 32 28C32 32 28 34 24 34H16" stroke="#306998" stroke-width="2.5" fill="none"/><path d="M32 12C32 10 30 8 26 8H22L22 12L26 12C28 12 28 14 28 16V20C28 24 32 26 32 30C32 34 28 36 24 36H16C12 36 8 34 8 30V26C8 24 10 22 14 22H18L18 18L14 18C10 18 8 16 8 12" stroke="#FFD43B" stroke-width="2.5" fill="none"/></svg></div><div class="logo__text"><span class="logo__title">Python</span><span class="logo__subtitle">первые программы</span></div></a>
+            <nav class="nav" id="mainNav"><ul class="nav__list"><li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li><li class="nav__item"><a href="lessons.html" class="nav__link">Уроки</a></li><li class="nav__item"><a href="reference.html" class="nav__link nav__link--active">Справочник</a></li><li class="nav__item"><a href="examples.html" class="nav__link">Примеры</a></li><li class="nav__item"><a href="playground.html" class="nav__link">Редактор</a></li></ul></nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему оформления"><svg class="theme-toggle__icon theme-toggle__icon--sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="theme-toggle__icon theme-toggle__icon--moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+            <button class="burger" id="burgerMenu" aria-label="Открыть меню"><span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span></button>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="lesson-layout">
+            <aside class="lesson-sidebar" id="lessonSidebar">
+                <div class="lesson-sidebar__header"><h3 class="lesson-sidebar__title">Разделы справочника</h3></div>
+                <nav class="lesson-nav">
+                    <a href="reference-types.html" class="lesson-nav__link">Типы данных</a>
+                    <a href="reference-operators.html" class="lesson-nav__link">Операторы</a>
+                    <a href="reference-conditionals.html" class="lesson-nav__link">Условные конструкции</a>
+                    <a href="reference-loops.html" class="lesson-nav__link lesson-nav__link--active">Циклы</a>
+                    <a href="reference-lists.html" class="lesson-nav__link">Списки и кортежи</a>
+                    <a href="reference-strings.html" class="lesson-nav__link">Строки</a>
+                    <a href="reference-dicts.html" class="lesson-nav__link">Словари и множества</a>
+                    <a href="reference-functions.html" class="lesson-nav__link">Функции</a>
+                </nav>
+            </aside>
+
+            <article class="lesson-content">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки"><ol class="breadcrumbs__list"><li class="breadcrumbs__item"><a href="index.html">Главная</a></li><li class="breadcrumbs__item"><a href="reference.html">Справочник</a></li><li class="breadcrumbs__item breadcrumbs__item--current">Циклы</li></ol></nav>
+                <h1 class="lesson-title">Циклы в Python</h1>
+
+                <!-- while -->
+                <section class="lesson-section" id="while">
+                    <h2>Цикл while</h2>
+                    <p>Цикл <code>while</code> выполняет блок кода до тех пор, пока условие остаётся истинным. Используется, когда заранее неизвестно, сколько раз нужно повторить действие.</p>
+                    <h3>Синтаксис</h3>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Синтаксис</span></div><pre class="code-block__body"><code class="language-python">while условие:
+    # тело цикла (выполняется, пока условие True)</code></pre></div>
+                    <h3>Пример</h3>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span></div><pre class="code-block__body"><code class="language-python">count = 1
+while count <= 5:
+    print(f"Итерация номер {count}")
+    count += 1
+# Вывод: Итерация номер 1, 2, 3, 4, 5</code></pre></div>
+                    <div class="warning-block"><div class="warning-block__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F56565" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="warning-block__text"><strong>Осторожно — бесконечный цикл!</strong> Если условие никогда не станет ложным, программа зависнет. Например: <code>while True: print("Бесконечность...")</code>. Для выхода используй <code>break</code>.</div></div>
+                </section>
+
+                <!-- for -->
+                <section class="lesson-section" id="for">
+                    <h2>Цикл for</h2>
+                    <p>Цикл <code>for</code> используется для перебора элементов последовательности (строки, списка, результата <code>range()</code>). В отличие от <code>while</code>, количество итераций обычно известно заранее.</p>
+                    <h3>Синтаксис</h3>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Синтаксис</span></div><pre class="code-block__body"><code class="language-python">for переменная in последовательность:
+    # тело цикла</code></pre></div>
+                    <h3>Примеры</h3>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python — перебор строки</span></div><pre class="code-block__body"><code class="language-python">for letter in "Python":
+    print(letter)
+# P, y, t, h, o, n — каждая буква на новой строке</code></pre></div>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python — перебор списка</span></div><pre class="code-block__body"><code class="language-python">fruits = ["яблоко", "груша", "слива"]
+for fruit in fruits:
+    print(f"Я люблю {fruit}")</code></pre></div>
+                </section>
+
+                <!-- range() -->
+                <section class="lesson-section" id="range">
+                    <h2>Функция range()</h2>
+                    <p><code>range()</code> генерирует последовательность чисел и чаще всего используется вместе с циклом <code>for</code>.</p>
+                    <h3>Синтаксис</h3>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Синтаксис</span></div><pre class="code-block__body"><code class="language-python">range(stop)              # от 0 до stop-1
+range(start, stop)        # от start до stop-1
+range(start, stop, step)  # с шагом step</code></pre></div>
+                    <table class="lesson-table">
+                        <thead><tr><th>Параметр</th><th>Тип</th><th>Обязательный</th><th>Описание</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>start</code></td><td>int</td><td>Нет</td><td>Начальное значение (по умолчанию 0)</td></tr>
+                            <tr><td><code>stop</code></td><td>int</td><td>Да</td><td>Конечное значение (не включается в последовательность)</td></tr>
+                            <tr><td><code>step</code></td><td>int</td><td>Нет</td><td>Шаг (по умолчанию 1, может быть отрицательным)</td></tr>
+                        </tbody>
+                    </table>
+                    <h3>Примеры</h3>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span></div><pre class="code-block__body"><code class="language-python"># От 0 до 4
+for i in range(5):
+    print(i)  # 0 1 2 3 4
+
+# От 3 до 7
+for i in range(3, 8):
+    print(i)  # 3 4 5 6 7
+
+# От 10 до 1 с шагом -2
+for i in range(10, 0, -2):
+    print(i)  # 10 8 6 4 2</code></pre></div>
+                </section>
+
+                <!-- break и continue -->
+                <section class="lesson-section" id="break-continue">
+                    <h2>Операторы break и continue</h2>
+                    <p><code>break</code> — немедленно прерывает выполнение цикла. <code>continue</code> — пропускает оставшуюся часть текущей итерации и переходит к следующей.</p>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python — break</span></div><pre class="code-block__body"><code class="language-python">for i in range(10):
+    if i == 5:
+        break
+    print(i)  # 0 1 2 3 4</code></pre></div>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python — continue</span></div><pre class="code-block__body"><code class="language-python">for i in range(5):
+    if i == 2:
+        continue
+    print(i)  # 0 1 3 4</code></pre></div>
+                </section>
+
+                <section class="related-links"><h3>Связанные статьи и уроки</h3><ul><li><a href="reference-lists.html">Списки (часто используются с for)</a></li><li><a href="lesson-06.html">Урок 6: Циклы while</a></li><li><a href="lesson-07.html">Урок 7: Циклы for</a></li></ul></section>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col"><a href="index.html" class="logo logo--footer"><span class="logo__title">Python</span><span class="logo__subtitle">первые программы</span></a><p class="footer__about">Бесплатное обучающее веб-приложение для начинающих программистов. Создано в рамках преддипломной практики на базе МКОУ СОШ №15 г.о. Нальчик.</p></div>
+                <div class="footer__col"><h4 class="footer__heading">Разделы сайта</h4><ul class="footer__nav"><li><a href="lessons.html">Уроки</a></li><li><a href="reference.html">Справочник</a></li><li><a href="examples.html">Примеры кода</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Полезные ссылки</h4><ul class="footer__nav"><li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Официальный сайт Python</a></li><li><a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Документация Python</a></li><li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Скачать Python</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Место практики</h4><address class="footer__address"><p>МКОУ СОШ №15</p><p>г.о. Нальчик</p><p>Руководитель: Бачиева Ф.А.</p></address></div>
+            </div>
+            <div class="footer__bottom"><p class="footer__copyright">Python: первые программы.</p><p class="footer__author">Гергоков Алихан Жамбулатович, специальность «Информационные системы и программирование»</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python: первые программы — обучение программированию для начинающих</title>
+    
+    <!-- Подключение шрифтов Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ==================== ХЕДЕР ==================== -->
+    <header class="header">
+        <div class="container header__inner">
+            <!-- Логотип -->
+            <a href="index.html" class="logo">
+                <div class="logo__icon">
+                    <!-- SVG иконка логотипа (стилизованные змейки Python + книга) -->
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Верхняя змейка (синяя) -->
+                        <path d="M8 28C8 30 10 32 14 32H18L18 28L14 28C12 28 12 26 12 24V20C12 16 8 14 8 10C8 6 12 4 16 4H24C28 4 32 6 32 10V14C32 16 30 18 26 18H22L22 22L26 22C30 22 32 24 32 28C32 32 28 34 24 34H16" stroke="#306998" stroke-width="2.5" fill="none"/>
+                        <!-- Нижняя змейка (жёлтая) -->
+                        <path d="M32 12C32 10 30 8 26 8H22L22 12L26 12C28 12 28 14 28 16V20C28 24 32 26 32 30C32 34 28 36 24 36H16C12 36 8 34 8 30V26C8 24 10 22 14 22H18L18 18L14 18C10 18 8 16 8 12" stroke="#FFD43B" stroke-width="2.5" fill="none"/>
+                    </svg>
+                </div>
+                <div class="logo__text">
+                    <span class="logo__title">Python</span>
+                    <span class="logo__subtitle">первые программы</span>
+                </div>
+            </a>
+
+            <!-- Навигационное меню -->
+            <nav class="nav" id="mainNav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link nav__link--active">Главная</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="lessons.html" class="nav__link">Уроки</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="reference.html" class="nav__link">Справочник</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="examples.html" class="nav__link">Примеры</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="playground.html" class="nav__link">Редактор</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Кнопка переключения темы -->
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему оформления">
+                <svg class="theme-toggle__icon theme-toggle__icon--sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="theme-toggle__icon theme-toggle__icon--moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+
+            <!-- Кнопка мобильного меню (гамбургер) -->
+            <button class="burger" id="burgerMenu" aria-label="Открыть меню">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ==================== ОСНОВНОЙ КОНТЕНТ ==================== -->
+    <main class="main">
+
+        <!-- HERO-секция (приветственный блок) -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        Научись программировать на <span class="hero__highlight">Python</span> с нуля
+                    </h1>
+                    <p class="hero__description">
+                        Бесплатный обучающий курс для школьников и всех, кто хочет сделать первые шаги 
+                        в мире программирования. Простые объяснения, наглядные примеры и встроенный 
+                        справочник — всё в одном месте.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="lessons.html" class="btn btn--primary btn--large">
+                            Начать обучение
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                        <a href="reference.html" class="btn btn--secondary btn--large">
+                            Открыть справочник
+                        </a>
+                    </div>
+                    <div class="hero__stats">
+                        <div class="hero__stat">
+                            <span class="hero__stat-number">18</span>
+                            <span class="hero__stat-label">подробных уроков</span>
+                        </div>
+                        <div class="hero__stat">
+                            <span class="hero__stat-number">50+</span>
+                            <span class="hero__stat-label">статей справочника</span>
+                        </div>
+                        <div class="hero__stat">
+                            <span class="hero__stat-number">0₽</span>
+                            <span class="hero__stat-label">полностью бесплатно</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__image">
+                    <!-- Декоративная иллюстрация: окно редактора кода -->
+                    <div class="hero__code-window">
+                        <div class="hero__code-header">
+                            <span class="hero__code-dot hero__code-dot--red"></span>
+                            <span class="hero__code-dot hero__code-dot--yellow"></span>
+                            <span class="hero__code-dot hero__code-dot--green"></span>
+                            <span class="hero__code-filename">first_program.py</span>
+                        </div>
+                        <div class="hero__code-body">
+                            <pre><code><span class="code-keyword">print</span>(<span class="code-string">"Привет, мир!"</span>)
+
+<span class="code-comment"># Это твоя первая программа</span>
+<span class="code-keyword">name</span> = <span class="code-function">input</span>(<span class="code-string">"Как тебя зовут? "</span>)
+<span class="code-keyword">print</span>(<span class="code-string">f"Приятно познакомиться, {name}!"</span>)</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Волна-разделитель -->
+            <div class="hero__wave">
+                <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 50C240 100 480 0 720 50C960 100 1200 0 1440 50V100H0V50Z" fill="var(--bg-primary)"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Секция "Возможности" (карточки разделов) -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section__title">Что ты найдёшь на сайте</h2>
+                <p class="section__subtitle">Всё необходимое для комфортного старта в программировании</p>
+                
+                <div class="features__grid">
+                    <!-- Карточка 1: Уроки -->
+                    <article class="feature-card">
+                        <div class="feature-card__icon feature-card__icon--blue">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-card__title">Пошаговые уроки</h3>
+                        <p class="feature-card__text">
+                            10 структурированных уроков от установки Python до создания собственных функций. 
+                            Материал изложен от простого к сложному, с подробными объяснениями каждого шага.
+                        </p>
+                        <a href="lessons.html" class="feature-card__link">
+                            Перейти к урокам
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <!-- Карточка 2: Справочник -->
+                    <article class="feature-card">
+                        <div class="feature-card__icon feature-card__icon--yellow">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-card__title">Встроенный справочник</h3>
+                        <p class="feature-card__text">
+                            Удобный справочник по командам и конструкциям Python. 
+                            Синтаксис, описание и примеры использования — всегда под рукой. 
+                            Больше не нужно искать информацию на разных сайтах.
+                        </p>
+                        <a href="reference.html" class="feature-card__link">
+                            Открыть справочник
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <!-- Карточка 3: Примеры кода -->
+                    <article class="feature-card">
+                        <div class="feature-card__icon feature-card__icon--green">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-card__title">Примеры кода</h3>
+                        <p class="feature-card__text">
+                            Коллекция готовых решений типовых задач с подробными комментариями. 
+                            Смотри, разбирай, экспериментируй — лучший способ научиться программировать.
+                        </p>
+                        <a href="examples.html" class="feature-card__link">
+                            Смотреть примеры
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция "Почему Python?" -->
+        <section class="why-python">
+            <div class="container">
+                <div class="why-python__grid">
+                    <div class="why-python__content">
+                        <h2 class="section__title section__title--left">Почему стоит начать именно с Python?</h2>
+                        <ul class="why-python__list">
+                            <li class="why-python__item">
+                                <svg class="why-python__check" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <div>
+                                    <strong>Простой и понятный синтаксис</strong>
+                                    <p>Код на Python похож на обычный английский язык. Ты сможешь писать осмысленные программы уже после первого урока.</p>
+                                </div>
+                            </li>
+                            <li class="why-python__item">
+                                <svg class="why-python__check" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <div>
+                                    <strong>Востребованность в профессии</strong>
+                                    <p>Python — один из самых популярных языков в мире. Его используют в веб-разработке, анализе данных, искусственном интеллекте и многих других сферах.</p>
+                                </div>
+                            </li>
+                            <li class="why-python__item">
+                                <svg class="why-python__check" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <div>
+                                    <strong>Огромное сообщество</strong>
+                                    <p>Миллионы разработчиков по всему миру пишут на Python. Ты всегда найдёшь ответ на свой вопрос и сможешь учиться у лучших.</p>
+                                </div>
+                            </li>
+                            <li class="why-python__item">
+                                <svg class="why-python__check" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <div>
+                                    <strong>Подходит для сдачи ОГЭ и ЕГЭ</strong>
+                                    <p>Python официально разрешён к использованию на государственных экзаменах по информатике. Начни готовиться заранее!</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="why-python__image">
+                        <!-- Стилизованное изображение логотипа Python -->
+                        <div class="why-python__logo-big">
+                            <svg width="280" height="280" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Верхняя часть логотипа Python (синяя змейка) -->
+                                <path d="M140 40C100 40 70 55 70 80V120H140V130H70C40 130 10 155 10 190C10 225 40 250 70 250H90V210C90 185 115 160 140 160H190C215 160 240 135 240 110V80C240 55 210 40 170 40H140Z" fill="#306998"/>
+                                <!-- Нижняя часть логотипа Python (жёлтая змейка) -->
+                                <path d="M140 240C180 240 210 225 210 200V160H140V150H210C240 150 270 125 270 90C270 55 240 30 210 30H190V70C190 95 165 120 140 120H90C65 120 40 145 40 170V200C40 225 70 240 110 240H140Z" fill="#FFD43B"/>
+                                <!-- Глаз верхней змейки -->
+                                <circle cx="115" cy="95" r="8" fill="white"/>
+                                <!-- Глаз нижней змейки -->
+                                <circle cx="165" cy="185" r="8" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция "Как начать?" -->
+        <section class="how-to-start">
+            <div class="container">
+                <h2 class="section__title">Как начать обучение?</h2>
+                <p class="section__subtitle">Три простых шага к твоей первой программе</p>
+                
+                <div class="steps">
+                    <div class="step">
+                        <div class="step__number">1</div>
+                        <h3 class="step__title">Открой раздел «Уроки»</h3>
+                        <p class="step__text">
+                            Перейди в раздел с уроками и начни с самого первого — 
+                            «Что такое Python и как он работает». Уроки идут по порядку, 
+                            каждый следующий опирается на предыдущий.
+                        </p>
+                    </div>
+                    <div class="step__divider">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#306998" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </div>
+                    <div class="step">
+                        <div class="step__number">2</div>
+                        <h3 class="step__title">Читай и пробуй</h3>
+                        <p class="step__text">
+                            В каждом уроке есть теория и примеры кода. 
+                            Не просто читай — обязательно повторяй код у себя на компьютере. 
+                            Это самый эффективный способ научиться.
+                        </p>
+                    </div>
+                    <div class="step__divider">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#306998" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </div>
+                    <div class="step">
+                        <div class="step__number">3</div>
+                        <h3 class="step__title">Используй справочник</h3>
+                        <p class="step__text">
+                            Если забыл команду или хочешь узнать больше — загляни в справочник. 
+                            Там собрана информация по всем темам курса с примерами использования.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="how-to-start__cta">
+                    <a href="lessons.html" class="btn btn--primary btn--large">
+                        Начать первый урок
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция "Для кого этот сайт?" -->
+        <section class="audience">
+            <div class="container">
+                <h2 class="section__title">Для кого этот сайт?</h2>
+                <div class="audience__grid">
+                    <div class="audience-card">
+                        <div class="audience-card__emoji">🎒</div>
+                        <h3 class="audience-card__title">Школьники</h3>
+                        <p class="audience-card__text">
+                            Ученики 7–11 классов, которые хотят освоить программирование 
+                            для учёбы, сдачи экзаменов или просто из интереса к IT.
+                        </p>
+                    </div>
+                    <div class="audience-card">
+                        <div class="audience-card__emoji">👩‍🏫</div>
+                        <h3 class="audience-card__title">Учителя</h3>
+                        <p class="audience-card__text">
+                            Педагоги по информатике, которым нужен готовый структурированный 
+                            материал для проведения уроков программирования.
+                        </p>
+                    </div>
+                    <div class="audience-card">
+                        <div class="audience-card__emoji">💡</div>
+                        <h3 class="audience-card__title">Самоучки</h3>
+                        <p class="audience-card__text">
+                            Все, кто решил самостоятельно освоить Python с нуля, 
+                            независимо от возраста и уровня подготовки.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== ФУТЕР ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <!-- Колонка 1: О проекте -->
+                <div class="footer__col">
+                    <a href="index.html" class="logo logo--footer">
+                        <span class="logo__title">Python</span>
+                        <span class="logo__subtitle">первые программы</span>
+                    </a>
+                    <p class="footer__about">
+                        Бесплатное обучающее веб-приложение для начинающих программистов. 
+                        Создано в рамках преддипломной практики на базе МКОУ СОШ №15 г.о. Нальчик.
+                    </p>
+                </div>
+
+                <!-- Колонка 2: Навигация -->
+                <div class="footer__col">
+                    <h4 class="footer__heading">Разделы сайта</h4>
+                    <ul class="footer__nav">
+                        <li><a href="lessons.html">Уроки</a></li>
+                        <li><a href="reference.html">Справочник</a></li>
+                        <li><a href="examples.html">Примеры кода</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка 3: Полезные ссылки -->
+                <div class="footer__col">
+                    <h4 class="footer__heading">Полезные ссылки</h4>
+                    <ul class="footer__nav">
+                        <li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Официальный сайт Python</a></li>
+                        <li><a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Документация Python</a></li>
+                        <li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Скачать Python</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка 4: Контакты -->
+                <div class="footer__col">
+                    <h4 class="footer__heading">Место практики</h4>
+                    <address class="footer__address">
+                        <p>МКОУ СОШ №15</p>
+                        <p>г.о. Нальчик</p>
+                        <p>Руководитель: Бачиева Ф.А.</p>
+                    </address>
+                </div>
+            </div>
+
+            <!-- Нижняя строка футера -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    Python: первые программы.
+                </p>
+                <p class="footer__author">
+                    Гергоков Алихан Жамбулатович, специальность «Информационные системы и программирование»
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Подключение JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

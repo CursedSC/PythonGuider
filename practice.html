@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практика — Python: первые программы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo">
+                <div class="logo__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 28C8 30 10 32 14 32H18L18 28L14 28C12 28 12 26 12 24V20C12 16 8 14 8 10C8 6 12 4 16 4H24C28 4 32 6 32 10V14C32 16 30 18 26 18H22L22 22L26 22C30 22 32 24 32 28C32 32 28 34 24 34H16" stroke="#306998" stroke-width="2.5" fill="none"/>
+                        <path d="M32 12C32 10 30 8 26 8H22L22 12L26 12C28 12 28 14 28 16V20C28 24 32 26 32 30C32 34 28 36 24 36H16C12 36 8 34 8 30V26C8 24 10 22 14 22H18L18 18L14 18C10 18 8 16 8 12" stroke="#FFD43B" stroke-width="2.5" fill="none"/>
+                    </svg>
+                </div>
+                <div class="logo__text">
+                    <span class="logo__title">Python</span>
+                    <span class="logo__subtitle">первые программы</span>
+                </div>
+            </a>
+            <nav class="nav" id="mainNav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="lessons.html" class="nav__link">Уроки</a></li>
+                    <li class="nav__item"><a href="reference.html" class="nav__link">Справочник</a></li>
+                    <li class="nav__item"><a href="examples.html" class="nav__link">Примеры</a></li>
+                    <li class="nav__item"><a href="playground.html" class="nav__link">Редактор</a></li>
+                    <li class="nav__item"><a href="practice.html" class="nav__link nav__link--active">Практика</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link">О проекте</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему оформления">
+                <svg class="theme-toggle__icon theme-toggle__icon--sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="theme-toggle__icon theme-toggle__icon--moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+            <button class="burger" id="burgerMenu" aria-label="Открыть меню">
+                <span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-hero__title">Практические задания</h1>
+                <p class="page-hero__subtitle">Закрепи знания на практике! Реши задачи самостоятельно, а затем сравни своё решение с примером.</p>
+            </div>
+        </section>
+
+        <!-- Простые задачи -->
+        <section class="practice-section">
+            <div class="container container--narrow">
+                <h2 class="practice-section__title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#306998" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    Простые задачи
+                </h2>
+                <p class="practice-section__desc">Подходят для начинающих — достаточно знать первые 3–4 урока.</p>
+
+                <!-- Задача 1 -->
+                <article class="practice-card">
+                    <div class="practice-card__header">
+                        <span class="practice-card__num">01</span>
+                        <h3 class="practice-card__title">Приветствие по имени</h3>
+                        <span class="badge badge--level">Начальный</span>
+                    </div>
+                    <div class="practice-card__body">
+                        <p><strong>Задача:</strong> Напиши программу, которая спрашивает имя пользователя и выводит персональное приветствие.</p>
+                        <div class="code-block" style="margin:1rem 0">
+                            <div class="code-block__header"><span class="code-block__lang">Пример вывода</span></div>
+                            <pre class="code-block__body code-block__body--output"><code>Как тебя зовут? Алихан
+Привет, Алихан! Добро пожаловать в мир Python!</code></pre>
+                        </div>
+                    </div>
+                    <button class="btn btn--secondary practice-card__toggle">Показать решение</button>
+                    <div class="practice-card__solution" style="display:none">
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">name = input("Как тебя зовут? ")
+print(f"Привет, {name}! Добро пожаловать в мир Python!")</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Задача 2 -->
+                <article class="practice-card">
+                    <div class="practice-card__header">
+                        <span class="practice-card__num">02</span>
+                        <h3 class="practice-card__title">Положительное или отрицательное</h3>
+                        <span class="badge badge--level">Начальный</span>
+                    </div>
+                    <div class="practice-card__body">
+                        <p><strong>Задача:</strong> Спроси у пользователя число и определи: оно положительное, отрицательное или равно нулю.</p>
+                        <div class="code-block" style="margin:1rem 0">
+                            <div class="code-block__header"><span class="code-block__lang">Пример вывода</span></div>
+                            <pre class="code-block__body code-block__body--output"><code>Введи число: -7
+Число -7 — отрицательное.</code></pre>
+                        </div>
+                    </div>
+                    <button class="btn btn--secondary practice-card__toggle">Показать решение</button>
+                    <div class="practice-card__solution" style="display:none">
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">n = int(input("Введи число: "))
+
+if n > 0:
+    print(f"Число {n} — положительное.")
+elif n < 0:
+    print(f"Число {n} — отрицательное.")
+else:
+    print("Число равно нулю.")</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Задача 3 -->
+                <article class="practice-card">
+                    <div class="practice-card__header">
+                        <span class="practice-card__num">03</span>
+                        <h3 class="practice-card__title">Список любимых предметов</h3>
+                        <span class="badge badge--level">Начальный</span>
+                    </div>
+                    <div class="practice-card__body">
+                        <p><strong>Задача:</strong> Создай список своих любимых школьных предметов и выведи их пронумерованно.</p>
+                        <div class="code-block" style="margin:1rem 0">
+                            <div class="code-block__header"><span class="code-block__lang">Пример вывода</span></div>
+                            <pre class="code-block__body code-block__body--output"><code>Мои любимые предметы:
+1. Информатика
+2. Математика
+3. Физика</code></pre>
+                        </div>
+                    </div>
+                    <button class="btn btn--secondary practice-card__toggle">Показать решение</button>
+                    <div class="practice-card__solution" style="display:none">
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">subjects = ["Информатика", "Математика", "Физика"]
+
+print("Мои любимые предметы:")
+for i, subject in enumerate(subjects, start=1):
+    print(f"{i}. {subject}")</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Задача 4 -->
+                <article class="practice-card">
+                    <div class="practice-card__header">
+                        <span class="practice-card__num">04</span>
+                        <h3 class="practice-card__title">Сумма двух чисел</h3>
+                        <span class="badge badge--level">Начальный</span>
+                    </div>
+                    <div class="practice-card__body">
+                        <p><strong>Задача:</strong> Программа получает два числа от пользователя и выводит их сумму, разность, произведение и частное.</p>
+                        <div class="code-block" style="margin:1rem 0">
+                            <div class="code-block__header"><span class="code-block__lang">Пример вывода</span></div>
+                            <pre class="code-block__body code-block__body--output"><code>Первое число: 10
+Второе число: 4
+10 + 4 = 14
+10 - 4 = 6
+10 * 4 = 40
+10 / 4 = 2.5</code></pre>
+                        </div>
+                    </div>
+                    <button class="btn btn--secondary practice-card__toggle">Показать решение</button>
+                    <div class="practice-card__solution" style="display:none">
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">a = float(input("Первое число: "))
+b = float(input("Второе число: "))
+
+print(f"{a} + {b} = {a + b}")
+print(f"{a} - {b} = {a - b}")
+print(f"{a} * {b} = {a * b}")
+if b != 0:
+    print(f"{a} / {b} = {a / b}")
+else:
+    print("На ноль делить нельзя!")</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Задача 5 -->
+                <article class="practice-card">
+                    <div class="practice-card__header">
+                        <span class="practice-card__num">05</span>
+                        <h3 class="practice-card__title">Таблица умножения на 3</h3>
+                        <span class="badge badge--level">Начальный</span>
+                    </div>
+                    <div class="practice-card__body">
+                        <p><strong>Задача:</strong> Выведи таблицу умножения на 3 от 1 до 10 с помощью цикла <code>for</code>.</p>
+                        <div class="code-block" style="margin:1rem 0">
+                            <div class="code-block__header"><span class="code-block__lang">Пример вывода</span></div>
+                            <pre class="code-block__body code-block__body--output"><code>3 x 1 = 3
+3 x 2 = 6
+...
+3 x 10 = 30</code></pre>
+                        </div>
+                    </div>
+                    <button class="btn btn--secondary practice-card__toggle">Показать решение</button>
+                    <div class="practice-card__solution" style="display:none">
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">for i in range(1, 11):
+    print(f"3 x {i} = {3 * i}")</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Задача 6 -->
+                <article class="practice-card">
+                    <div class="practice-card__header">
+                        <span class="practice-card__num">06</span>
+                        <h3 class="practice-card__title">Длина строки</h3>
+                        <span class="badge badge--level">Начальный</span>
+                    </div>
+                    <div class="practice-card__body">
+                        <p><strong>Задача:</strong> Попроси пользователя ввести любое слово или фразу, и выведи количество символов, а также строку задом наперёд.</p>
+                        <div class="code-block" style="margin:1rem 0">
+                            <div class="code-block__header"><span class="code-block__lang">Пример вывода</span></div>
+                            <pre class="code-block__body code-block__body--output"><code>Введи текст: Python
+Длина: 6 символов
+Задом наперёд: nohtyP</code></pre>
+                        </div>
+                    </div>
+                    <button class="btn btn--secondary practice-card__toggle">Показать решение</button>
+                    <div class="practice-card__solution" style="display:none">
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">text = input("Введи текст: ")
+print(f"Длина: {len(text)} символов")
+print(f"Задом наперёд: {text[::-1]}")</code></pre>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Мини-проекты -->
+        <section class="practice-section practice-section--alt">
+            <div class="container container--narrow">
+                <h2 class="practice-section__title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#306998" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    Мини-проекты
+                </h2>
+                <p class="practice-section__desc">Небольшие программы с реальной логикой — для тех, кто прошёл уроки 5–9.</p>
+
+                <!-- Мини-проект 1 -->
+                <article class="practice-card practice-card--project">
+                    <div class="practice-card__header">
+                        <span class="practice-card__num">П1</span>
+                        <h3 class="practice-card__title">Простой калькулятор</h3>
+                        <span class="badge badge--time">Мини-проект</span>
+                    </div>
+                    <div class="practice-card__body">
+                        <p><strong>Задача:</strong> Создай консольный калькулятор, который выполняет 4 действия. Пользователь вводит два числа и выбирает операцию из меню.</p>
+                        <p><strong>Требования:</strong></p>
+                        <ul style="margin: 0.5rem 0 1rem 1.5rem;">
+                            <li>Меню с выбором операции (+, -, *, /)</li>
+                            <li>Проверка деления на ноль</li>
+                            <li>Повторять цикл до выбора «Выйти»</li>
+                        </ul>
+                        <div class="code-block" style="margin:1rem 0">
+                            <div class="code-block__header"><span class="code-block__lang">Пример работы</span></div>
+                            <pre class="code-block__body code-block__body--output"><code>Калькулятор
+1 — Сложение
+2 — Вычитание
+3 — Умножение
+4 — Деление
+0 — Выйти
+
+Выбор: 1
+Первое число: 15
+Второе число: 7
+15 + 7 = 22</code></pre>
+                        </div>
+                    </div>
+                    <button class="btn btn--secondary practice-card__toggle">Показать решение</button>
+                    <div class="practice-card__solution" style="display:none">
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">def calculate(a, b, op):
+    if op == "1":
+        return f"{a} + {b} = {a + b}"
+    elif op == "2":
+        return f"{a} - {b} = {a - b}"
+    elif op == "3":
+        return f"{a} * {b} = {a * b}"
+    elif op == "4":
+        if b == 0:
+            return "Ошибка: деление на ноль!"
+        return f"{a} / {b} = {a / b}"
+
+while True:
+    print("\nКалькулятор")
+    print("1 — Сложение\n2 — Вычитание\n3 — Умножение\n4 — Деление\n0 — Выйти")
+    choice = input("\nВыбор: ").strip()
+
+    if choice == "0":
+        print("До свидания!")
+        break
+    if choice not in ("1", "2", "3", "4"):
+        print("Неверный выбор")
+        continue
+
+    a = float(input("Первое число: "))
+    b = float(input("Второе число: "))
+    print(calculate(a, b, choice))</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Мини-проект 2 -->
+                <article class="practice-card practice-card--project">
+                    <div class="practice-card__header">
+                        <span class="practice-card__num">П2</span>
+                        <h3 class="practice-card__title">Список дел</h3>
+                        <span class="badge badge--time">Мини-проект</span>
+                    </div>
+                    <div class="practice-card__body">
+                        <p><strong>Задача:</strong> Программа «Список дел» — можно добавлять, просматривать и удалять задачи.</p>
+                        <p><strong>Требования:</strong></p>
+                        <ul style="margin: 0.5rem 0 1rem 1.5rem;">
+                            <li>Добавить задачу (пользователь вводит текст)</li>
+                            <li>Показать все задачи с номерами</li>
+                            <li>Удалить задачу по номеру</li>
+                            <li>Выход из программы</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn--secondary practice-card__toggle">Показать решение</button>
+                    <div class="practice-card__solution" style="display:none">
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">tasks = []
+
+while True:
+    print("\n=== Список дел ===")
+    print("1 — Добавить задачу")
+    print("2 — Показать все")
+    print("3 — Удалить задачу")
+    print("0 — Выйти")
+
+    choice = input("Выбор: ").strip()
+
+    if choice == "1":
+        task = input("Новая задача: ").strip()
+        if task:
+            tasks.append(task)
+            print(f"Добавлено: «{task}»")
+        else:
+            print("Задача не может быть пустой.")
+
+    elif choice == "2":
+        if not tasks:
+            print("Список пуст.")
+        else:
+            for i, t in enumerate(tasks, 1):
+                print(f"  {i}. {t}")
+
+    elif choice == "3":
+        if not tasks:
+            print("Нечего удалять.")
+        else:
+            for i, t in enumerate(tasks, 1):
+                print(f"  {i}. {t}")
+            try:
+                n = int(input("Номер для удаления: "))
+                removed = tasks.pop(n - 1)
+                print(f"Удалено: «{removed}»")
+            except (ValueError, IndexError):
+                print("Неверный номер.")
+
+    elif choice == "0":
+        print("До свидания!")
+        break</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Мини-проект 3 -->
+                <article class="practice-card practice-card--project">
+                    <div class="practice-card__header">
+                        <span class="practice-card__num">П3</span>
+                        <h3 class="practice-card__title">Угадай число (упрощённый)</h3>
+                        <span class="badge badge--time">Мини-проект</span>
+                    </div>
+                    <div class="practice-card__body">
+                        <p><strong>Задача:</strong> Компьютер загадывает случайное число от 1 до 50. Игрок угадывает с подсказками «больше» / «меньше». Ограничение: не более 7 попыток.</p>
+                    </div>
+                    <button class="btn btn--secondary practice-card__toggle">Показать решение</button>
+                    <div class="practice-card__solution" style="display:none">
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">import random
+
+secret = random.randint(1, 50)
+max_attempts = 7
+attempts = 0
+
+print("Я загадал число от 1 до 50. У тебя 7 попыток!")
+
+while attempts < max_attempts:
+    attempts += 1
+    remaining = max_attempts - attempts + 1
+
+    try:
+        guess = int(input(f"Попытка {attempts}/{max_attempts}: "))
+    except ValueError:
+        print("Введи целое число!")
+        attempts -= 1
+        continue
+
+    if guess == secret:
+        print(f"Правильно! Ты угадал за {attempts} попыток.")
+        break
+    elif guess < secret:
+        print(f"Моё число больше. Осталось попыток: {remaining - 1}")
+    else:
+        print(f"Моё число меньше. Осталось попыток: {remaining - 1}")
+else:
+    print(f"Попытки кончились! Загаданное число: {secret}")</code></pre>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Итоговые задачи -->
+        <section class="practice-section">
+            <div class="container container--narrow">
+                <h2 class="practice-section__title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#306998" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    Итоговые задачи
+                </h2>
+                <p class="practice-section__desc">Для тех, кто прошёл весь курс. Задачи потребуют нескольких тем сразу.</p>
+
+                <!-- Итоговая задача 1 -->
+                <article class="practice-card practice-card--advanced">
+                    <div class="practice-card__header">
+                        <span class="practice-card__num">И1</span>
+                        <h3 class="practice-card__title">Анализ оценок</h3>
+                        <span class="badge badge--level">Продвинутый</span>
+                    </div>
+                    <div class="practice-card__body">
+                        <p><strong>Задача:</strong> Программа принимает список оценок студентов, вычисляет среднее, находит максимальную и минимальную оценку, выводит количество отличников (оценка ≥ 4.5).</p>
+                    </div>
+                    <button class="btn btn--secondary practice-card__toggle">Показать решение</button>
+                    <div class="practice-card__solution" style="display:none">
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">grades = [4.8, 3.2, 5.0, 4.5, 2.9, 4.0, 4.9, 3.7, 5.0, 4.2]
+
+avg = sum(grades) / len(grades)
+max_grade = max(grades)
+min_grade = min(grades)
+excellent = sum(1 for g in grades if g >= 4.5)
+
+print(f"Всего оценок: {len(grades)}")
+print(f"Средняя оценка: {avg:.2f}")
+print(f"Максимальная: {max_grade}")
+print(f"Минимальная: {min_grade}")
+print(f"Отличников (≥4.5): {excellent}")</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Итоговая задача 2 -->
+                <article class="practice-card practice-card--advanced">
+                    <div class="practice-card__header">
+                        <span class="practice-card__num">И2</span>
+                        <h3 class="practice-card__title">Счётчик слов</h3>
+                        <span class="badge badge--level">Продвинутый</span>
+                    </div>
+                    <div class="practice-card__body">
+                        <p><strong>Задача:</strong> Программа получает текст и подсчитывает, сколько раз встречается каждое слово. Результат сортируется по убыванию частоты.</p>
+                    </div>
+                    <button class="btn btn--secondary practice-card__toggle">Показать решение</button>
+                    <div class="practice-card__solution" style="display:none">
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">text = input("Введи текст: ").lower()
+words = text.split()
+
+counts = {}
+for word in words:
+    word = word.strip(".,!?;:")
+    counts[word] = counts.get(word, 0) + 1
+
+sorted_words = sorted(counts.items(), key=lambda x: x[1], reverse=True)
+
+print("\nЧастота слов:")
+for word, count in sorted_words:
+    print(f"  {word}: {count}")</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Итоговая задача 3 -->
+                <article class="practice-card practice-card--advanced">
+                    <div class="practice-card__header">
+                        <span class="practice-card__num">И3</span>
+                        <h3 class="practice-card__title">Простые числа (решето Эратосфена)</h3>
+                        <span class="badge badge--level">Продвинутый</span>
+                    </div>
+                    <div class="practice-card__body">
+                        <p><strong>Задача:</strong> Выведи все простые числа до N, используя алгоритм «Решето Эратосфена». N вводит пользователь.</p>
+                    </div>
+                    <button class="btn btn--secondary practice-card__toggle">Показать решение</button>
+                    <div class="practice-card__solution" style="display:none">
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">n = int(input("Найти простые числа до: "))
+
+sieve = [True] * (n + 1)
+sieve[0] = sieve[1] = False
+
+for i in range(2, int(n**0.5) + 1):
+    if sieve[i]:
+        for j in range(i*i, n + 1, i):
+            sieve[j] = False
+
+primes = [i for i, is_prime in enumerate(sieve) if is_prime]
+print(f"Простые числа до {n}: {primes}")</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Итоговая задача 4 -->
+                <article class="practice-card practice-card--advanced">
+                    <div class="practice-card__header">
+                        <span class="practice-card__num">И4</span>
+                        <h3 class="practice-card__title">Шифр Цезаря</h3>
+                        <span class="badge badge--level">Продвинутый</span>
+                    </div>
+                    <div class="practice-card__body">
+                        <p><strong>Задача:</strong> Реализуй шифрование и расшифровку методом «Шифр Цезаря». Пользователь вводит текст, сдвиг и режим (зашифровать/расшифровать).</p>
+                    </div>
+                    <button class="btn btn--secondary practice-card__toggle">Показать решение</button>
+                    <div class="practice-card__solution" style="display:none">
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">def caesar(text, shift, mode="encrypt"):
+    if mode == "decrypt":
+        shift = -shift
+    result = []
+    for ch in text:
+        if ch.isalpha():
+            base = ord('А') if ch.upper() >= 'А' else ord('a')
+            if ch.upper() >= 'А':
+                base = ord('А')
+                shifted = (ord(ch.upper()) - ord('А') + shift) % 32
+                new_ch = chr(ord('А') + shifted)
+                result.append(new_ch.lower() if ch.islower() else new_ch)
+            else:
+                shifted = (ord(ch.lower()) - ord('a') + shift) % 26
+                new_ch = chr(ord('a') + shifted)
+                result.append(new_ch.upper() if ch.isupper() else new_ch)
+        else:
+            result.append(ch)
+    return "".join(result)
+
+text = input("Текст: ")
+shift = int(input("Сдвиг: "))
+mode = input("Режим (encrypt/decrypt): ").strip()
+print("Результат:", caesar(text, shift, mode))</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Итоговая задача 5 -->
+                <article class="practice-card practice-card--advanced">
+                    <div class="practice-card__header">
+                        <span class="practice-card__num">И5</span>
+                        <h3 class="practice-card__title">Класс «Банковский счёт»</h3>
+                        <span class="badge badge--level">Продвинутый</span>
+                    </div>
+                    <div class="practice-card__body">
+                        <p><strong>Задача:</strong> Создай класс <code>BankAccount</code> с методами пополнения, снятия и просмотра баланса. Предусмотри защиту от отрицательного баланса.</p>
+                    </div>
+                    <button class="btn btn--secondary practice-card__toggle">Показать решение</button>
+                    <div class="practice-card__solution" style="display:none">
+                        <div class="code-block">
+                            <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">class BankAccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount):
+        if amount <= 0:
+            print("Сумма должна быть положительной.")
+            return
+        self.balance += amount
+        print(f"Пополнено на {amount} руб. Баланс: {self.balance} руб.")
+
+    def withdraw(self, amount):
+        if amount <= 0:
+            print("Сумма должна быть положительной.")
+        elif amount > self.balance:
+            print("Недостаточно средств.")
+        else:
+            self.balance -= amount
+            print(f"Снято {amount} руб. Баланс: {self.balance} руб.")
+
+    def show(self):
+        print(f"Счёт: {self.owner}, баланс: {self.balance} руб.")
+
+acc = BankAccount("Алихан", 1000)
+acc.show()
+acc.deposit(500)
+acc.withdraw(200)
+acc.withdraw(2000)
+acc.show()</code></pre>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <a href="index.html" class="logo logo--footer">
+                        <span class="logo__title">Python</span>
+                        <span class="logo__subtitle">первые программы</span>
+                    </a>
+                    <p class="footer__about">Бесплатное обучающее веб-приложение для начинающих программистов. Создано в рамках преддипломной практики на базе МКОУ СОШ №15 г.о. Нальчик.</p>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Разделы сайта</h4>
+                    <ul class="footer__nav">
+                        <li><a href="lessons.html">Уроки</a></li>
+                        <li><a href="reference.html">Справочник</a></li>
+                        <li><a href="examples.html">Примеры кода</a></li>
+                        <li><a href="practice.html">Практика</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Полезные ссылки</h4>
+                    <ul class="footer__nav">
+                        <li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Официальный сайт Python</a></li>
+                        <li><a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Документация Python</a></li>
+                        <li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Скачать Python</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Место практики</h4>
+                    <address class="footer__address">
+                        <p>МКОУ СОШ №15</p><p>г.о. Нальчик</p><p>Руководитель: Бачиева Ф.А.</p>
+                    </address>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">Python: первые программы.</p>
+                <p class="footer__author">Гергоков Алихан Жамбулатович, специальность «Информационные системы и программирование»</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <!-- Skulpt: Python 3 в браузере -->
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+    <script>
+        // ── Toggle "Показать решение" ──────────────────────────────────────
+        document.querySelectorAll('.practice-card__toggle').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var solution = this.nextElementSibling;
+                if (solution.style.display === 'none') {
+                    solution.style.display = 'block';
+                    this.textContent = 'Скрыть решение';
+                } else {
+                    solution.style.display = 'none';
+                    this.textContent = 'Показать решение';
+                }
+            });
+        });
+
+        // ── Skulpt: запуск Python кода ─────────────────────────────────────
+        function builtinRead(x) {
+            if (Sk.builtinFiles === undefined || Sk.builtinFiles.files[x] === undefined)
+                throw "Файл не найден: '" + x + "'";
+            return Sk.builtinFiles.files[x];
+        }
+
+        function runPracticeCode(editorId, outputId, runBtn) {
+            var code = document.getElementById(editorId).value;
+            var out = document.getElementById(outputId);
+            var buf = '';
+            out.style.display = 'block';
+            out.style.color = '#98C379';
+            out.textContent = '';
+
+            Sk.configure({
+                output: function(t) { buf += t; out.textContent = buf; },
+                read: builtinRead,
+                inputfun: function(p) {
+                    return new Promise(function(res) { res(window.prompt(p || '') || ''); });
+                },
+                inputfunTakesPrompt: true,
+                __future__: Sk.python3
+            });
+
+            runBtn.disabled = true;
+            runBtn.textContent = '⏳';
+
+            Sk.misceval.asyncToPromise(function() {
+                return Sk.importMainWithBody('<stdin>', false, code, true);
+            }).then(function() {
+                if (!buf) { out.style.color = 'rgba(171,178,191,0.5)'; out.textContent = '(без вывода)'; }
+            }).catch(function(err) {
+                out.style.color = '#E06C75';
+                out.textContent = err.toString();
+            }).finally(function() {
+                runBtn.disabled = false;
+                runBtn.innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Запустить';
+            });
+        }
+
+        // ── Добавить мини-редактор в каждую карточку ──────────────────────
+        var authPromise = (window.location.protocol !== 'file:')
+            ? fetch('/api/me').then(function(r){ return r.json(); })
+            : Promise.resolve({ logged_in: false });
+
+        authPromise.then(function(authData) {
+            var loggedIn = authData.logged_in;
+
+            document.querySelectorAll('.practice-card').forEach(function(card, idx) {
+                var titleEl  = card.querySelector('.practice-card__title');
+                var taskName = titleEl ? titleEl.textContent.trim() : ('Задача ' + (idx + 1));
+                var eid = 'pe_' + idx;
+                var oid = 'po_' + idx;
+                var rid = 'pr_' + idx;
+                var sid = 'ps_' + idx;
+                var stid = 'pst_' + idx;
+
+                var submitRow = loggedIn
+                    ? '<button id="' + sid + '" class="btn btn--primary" style="font-size:0.82rem;padding:6px 14px;">📤 Отправить на проверку</button>' +
+                      '<span id="' + stid + '" style="font-size:0.82rem;color:var(--text-secondary);align-self:center;"></span>'
+                    : '<span style="font-size:0.82rem;color:var(--text-secondary);align-self:center;"><a href="/login" style="color:var(--color-primary);">Войди</a>, чтобы отправить на проверку</span>';
+
+                var block = document.createElement('div');
+                block.style.cssText = 'margin-top:1rem;border-top:1px solid var(--border-color);padding-top:1rem;';
+                block.innerHTML =
+                    '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">' +
+                        '<span style="font-size:0.88rem;font-weight:600;color:var(--text-primary);">✏️ Твоё решение</span>' +
+                        '<button id="' + rid + '" style="background:#306998;color:#fff;border:none;border-radius:7px;padding:5px 13px;font-size:0.82rem;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:4px;">' +
+                            '<svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Запустить' +
+                        '</button>' +
+                    '</div>' +
+                    '<textarea id="' + eid + '" rows="7" spellcheck="false" placeholder="# Напиши свой код здесь...\n# Нажми Запустить или Ctrl+Enter" style="width:100%;box-sizing:border-box;font-family:\'JetBrains Mono\',monospace;font-size:0.84rem;line-height:1.6;padding:10px 12px;border-radius:8px;border:1px solid var(--border-color);background:var(--bg-secondary);color:var(--text-primary);resize:vertical;tab-size:4;"></textarea>' +
+                    '<div id="' + oid + '" style="display:none;margin-top:6px;background:#1e2228;color:#98C379;font-family:\'JetBrains Mono\',monospace;font-size:0.82rem;line-height:1.6;padding:10px 14px;border-radius:8px;white-space:pre-wrap;max-height:180px;overflow:auto;"></div>' +
+                    '<div style="display:flex;gap:0.6rem;margin-top:0.6rem;flex-wrap:wrap;">' + submitRow + '</div>';
+
+                card.appendChild(block);
+
+                // Запуск кода
+                var runBtn = document.getElementById(rid);
+                runBtn.addEventListener('click', function() {
+                    runPracticeCode(eid, oid, this);
+                });
+
+                // Tab + Ctrl+Enter в textarea
+                document.getElementById(eid).addEventListener('keydown', function(e) {
+                    if (e.key === 'Tab') {
+                        e.preventDefault();
+                        var s = this.selectionStart, en = this.selectionEnd;
+                        this.value = this.value.substring(0, s) + '    ' + this.value.substring(en);
+                        this.selectionStart = this.selectionEnd = s + 4;
+                    }
+                    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                        e.preventDefault();
+                        runPracticeCode(eid, oid, runBtn);
+                    }
+                });
+
+                // Отправка на проверку
+                if (loggedIn) {
+                    document.getElementById(sid).addEventListener('click', function() {
+                        var code = document.getElementById(eid).value.trim();
+                        var statusEl = document.getElementById(stid);
+                        var btn = this;
+                        if (!code) { statusEl.textContent = 'Введи код перед отправкой.'; return; }
+                        btn.disabled = true;
+                        statusEl.style.color = 'var(--text-secondary)';
+                        statusEl.textContent = 'Отправляем...';
+                        fetch('/api/submit-code', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ lesson: 'practice', task_title: taskName, student_code: code })
+                        }).then(function(r) { return r.json(); }).then(function(d) {
+                            if (d.ok) {
+                                statusEl.style.color = '#48BB78';
+                                statusEl.textContent = '✓ Отправлено на проверку!';
+                            } else {
+                                statusEl.style.color = '#E53E3E';
+                                statusEl.textContent = d.error;
+                                btn.disabled = false;
+                            }
+                        }).catch(function() {
+                            statusEl.textContent = 'Ошибка сети.';
+                            btn.disabled = false;
+                        });
+                    });
+                }
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

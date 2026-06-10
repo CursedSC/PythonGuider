@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 14: Генераторы списков — Python: первые программы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo"><div class="logo__icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 28C8 30 10 32 14 32H18L18 28L14 28C12 28 12 26 12 24V20C12 16 8 14 8 10C8 6 12 4 16 4H24C28 4 32 6 32 10V14C32 16 30 18 26 18H22L22 22L26 22C30 22 32 24 32 28C32 32 28 34 24 34H16" stroke="#306998" stroke-width="2.5" fill="none"/><path d="M32 12C32 10 30 8 26 8H22L22 12L26 12C28 12 28 14 28 16V20C28 24 32 26 32 30C32 34 28 36 24 36H16C12 36 8 34 8 30V26C8 24 10 22 14 22H18L18 18L14 18C10 18 8 16 8 12" stroke="#FFD43B" stroke-width="2.5" fill="none"/></svg></div><div class="logo__text"><span class="logo__title">Python</span><span class="logo__subtitle">первые программы</span></div></a>
+            <nav class="nav" id="mainNav"><ul class="nav__list">
+                <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                <li class="nav__item"><a href="lessons.html" class="nav__link nav__link--active">Уроки</a></li>
+                <li class="nav__item"><a href="reference.html" class="nav__link">Справочник</a></li>
+                <li class="nav__item"><a href="examples.html" class="nav__link">Примеры</a></li>
+                <li class="nav__item"><a href="playground.html" class="nav__link">Редактор</a></li>
+            </ul></nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему оформления"><svg class="theme-toggle__icon theme-toggle__icon--sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="theme-toggle__icon theme-toggle__icon--moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+            <button class="burger" id="burgerMenu" aria-label="Открыть меню"><span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span></button>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="lesson-layout">
+            <aside class="lesson-sidebar" id="lessonSidebar">
+                <div class="lesson-sidebar__header">
+                    <h3 class="lesson-sidebar__title">Содержание курса</h3>
+                    <div class="progress-bar"><div class="progress-bar__fill" style="width: 75%;"></div></div>
+                    <span class="progress-bar__label">Пройдено 13 из 18</span>
+                </div>
+                <nav class="lesson-nav">
+                    <a href="lesson-01.html" class="lesson-nav__link lesson-nav__link--completed">1. Что такое Python</a>
+                    <a href="lesson-02.html" class="lesson-nav__link lesson-nav__link--completed">2. Установка и первый запуск</a>
+                    <a href="lesson-03.html" class="lesson-nav__link lesson-nav__link--completed">3. Переменные и типы данных</a>
+                    <a href="lesson-04.html" class="lesson-nav__link lesson-nav__link--completed">4. Ввод и вывод данных</a>
+                    <a href="lesson-05.html" class="lesson-nav__link lesson-nav__link--completed">5. Условный оператор if-else</a>
+                    <a href="lesson-06.html" class="lesson-nav__link lesson-nav__link--completed">6. Цикл while</a>
+                    <a href="lesson-07.html" class="lesson-nav__link lesson-nav__link--completed">7. Цикл for</a>
+                    <a href="lesson-08.html" class="lesson-nav__link lesson-nav__link--completed">8. Списки</a>
+                    <a href="lesson-09.html" class="lesson-nav__link lesson-nav__link--completed">9. Функции</a>
+                    <a href="lesson-10.html" class="lesson-nav__link lesson-nav__link--completed">10. Итоговый проект</a>
+                    <a href="lesson-11.html" class="lesson-nav__link lesson-nav__link--completed">11. Работа с файлами</a>
+                    <a href="lesson-12.html" class="lesson-nav__link lesson-nav__link--completed">12. Исключения (try/except)</a>
+                    <a href="lesson-13.html" class="lesson-nav__link lesson-nav__link--completed">13. Модули math и random</a>
+                    <a href="lesson-14.html" class="lesson-nav__link lesson-nav__link--active">14. Генераторы списков</a>
+                    <a href="lesson-15.html" class="lesson-nav__link">15. Словари: углублённо</a>
+                    <a href="lesson-16.html" class="lesson-nav__link">16. Основы ООП</a>
+                    <a href="lesson-17.html" class="lesson-nav__link">17. Рекурсия</a>
+                    <a href="lesson-18.html" class="lesson-nav__link">18. Проект 2: «Угадай число»</a>
+                </nav>
+            </aside>
+
+            <article class="lesson-content">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки"><ol class="breadcrumbs__list"><li class="breadcrumbs__item"><a href="index.html">Главная</a></li><li class="breadcrumbs__item"><a href="lessons.html">Уроки</a></li><li class="breadcrumbs__item breadcrumbs__item--current">Урок 14</li></ol></nav>
+
+                <header class="lesson-header">
+                    <div class="lesson-header__meta"><span class="lesson-number">Урок 14</span><span class="lesson-difficulty lesson-difficulty--medium">Средний</span></div>
+                    <h1 class="lesson-title">Генераторы списков</h1>
+                    <p class="lesson-subtitle">Компактный и «питонический» способ создавать списки на основе других последовательностей — list comprehension.</p>
+                </header>
+
+                <div class="goal-block"><div class="goal-block__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4299E1" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="goal-block__text"><strong>Цель урока:</strong> научиться создавать списки с помощью генераторов (list comprehension), понять как добавлять условия-фильтры и создавать генераторы словарей.</div></div>
+
+                <section class="lesson-section" id="what-is">
+                    <h2>Что такое генератор списка?</h2>
+                    <p>Генератор списка — это краткая запись цикла для создания нового списка. Сравните два подхода:</p>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python — обычный цикл vs генератор</span><button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div><pre class="code-block__body"><code class="language-python"># Обычный способ — цикл
+squares = []
+for x in range(1, 6):
+    squares.append(x ** 2)
+print(squares)  # [1, 4, 9, 16, 25]
+
+# Генератор списка — одна строка!
+squares = [x ** 2 for x in range(1, 6)]
+print(squares)  # [1, 4, 9, 16, 25]</code></pre></div>
+                    <p>Синтаксис: <code>[выражение for переменная in последовательность]</code></p>
+                </section>
+
+                <section class="lesson-section" id="with-condition">
+                    <h2>Генератор с условием (фильтр)</h2>
+                    <p>Можно добавить <code>if</code> в конце, чтобы включать только нужные элементы:</p>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span><button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div><pre class="code-block__body"><code class="language-python"># Только чётные числа от 1 до 20
+evens = [x for x in range(1, 21) if x % 2 == 0]
+print(evens)  # [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+# Слова длиннее 4 символов
+words = ["кот", "python", "да", "программа", "я"]
+long_words = [w for w in words if len(w) > 4]
+print(long_words)  # ['python', 'программа']
+
+# Отрицательные числа из списка
+nums = [3, -1, 7, -5, 0, -3, 8]
+negatives = [n for n in nums if n < 0]
+print(negatives)  # [-1, -5, -3]</code></pre></div>
+                </section>
+
+                <section class="lesson-section" id="transform">
+                    <h2>Преобразование элементов</h2>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span><button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div><pre class="code-block__body"><code class="language-python"># Привести строки к верхнему регистру
+names = ["алихан", "асель", "тимур"]
+upper = [name.upper() for name in names]
+print(upper)  # ['АЛИХАН', 'АСЕЛЬ', 'ТИМУР']
+
+# Цены с наценкой 20%
+prices = [100, 200, 350, 500]
+with_tax = [round(p * 1.2, 2) for p in prices]
+print(with_tax)  # [120.0, 240.0, 420.0, 600.0]
+
+# if-else внутри выражения
+scores = [85, 42, 91, 55, 73]
+grades = ["отлично" if s >= 80 else "хорошо" if s >= 60 else "плохо"
+          for s in scores]
+print(grades)  # ['отлично', 'плохо', 'отлично', 'плохо', 'хорошо']</code></pre></div>
+                </section>
+
+                <section class="lesson-section" id="dict-comp">
+                    <h2>Генератор словаря</h2>
+                    <p>Аналогично работает и для словарей — синтаксис: <code>{ключ: значение for переменная in последовательность}</code></p>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span><button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div><pre class="code-block__body"><code class="language-python"># Квадраты чисел в словаре
+sq_dict = {x: x**2 for x in range(1, 6)}
+print(sq_dict)  # {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+# Из двух списков — словарь
+keys = ["name", "age", "city"]
+vals = ["Алихан", 17, "Нальчик"]
+person = {k: v for k, v in zip(keys, vals)}
+print(person)  # {'name': 'Алихан', 'age': 17, 'city': 'Нальчик'}
+
+# Инвертировать словарь (ключи ↔ значения)
+original = {"a": 1, "b": 2, "c": 3}
+inverted = {v: k for k, v in original.items()}
+print(inverted)  # {1: 'a', 2: 'b', 3: 'c'}</code></pre></div>
+                    <div class="tip-block"><div class="tip-block__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div><div class="tip-block__text">Также есть генераторы множеств: <code>{x**2 for x in range(5)}</code>. Обратите внимание на фигурные скобки — это не словарь, потому что нет <code>:</code>.</div></div>
+                </section>
+
+                <div class="task-block"><div class="task-block__header"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9F7AEA" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg><h3>Задание для самопроверки</h3></div><div class="task-block__body"><p>Используя генераторы списков и словарей:</p><ol><li>Создайте список квадратов нечётных чисел от 1 до 20</li><li>Из строки <code>"Hello, World!"</code> создайте список всех букв в верхнем регистре (пропуская пробелы и знаки препинания)</li><li>Из списка слов <code>["яблоко", "банан", "груша", "киви"]</code> создайте словарь <code>{слово: длина_слова}</code></li></ol></div></div>
+
+                <nav class="lesson-navigation">
+                    <a href="lesson-13.html" class="lesson-nav-btn lesson-nav-btn--prev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>Предыдущий урок</a>
+                    <a href="lesson-15.html" class="lesson-nav-btn lesson-nav-btn--next">Следующий урок<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+                </nav>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col"><a href="index.html" class="logo logo--footer"><span class="logo__title">Python</span><span class="logo__subtitle">первые программы</span></a><p class="footer__about">Бесплатное обучающее веб-приложение для начинающих программистов. Создано в рамках преддипломной практики на базе МКОУ СОШ №15 г.о. Нальчик.</p></div>
+                <div class="footer__col"><h4 class="footer__heading">Разделы сайта</h4><ul class="footer__nav"><li><a href="lessons.html">Уроки</a></li><li><a href="reference.html">Справочник</a></li><li><a href="examples.html">Примеры кода</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Полезные ссылки</h4><ul class="footer__nav"><li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Официальный сайт Python</a></li><li><a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Документация Python</a></li><li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Скачать Python</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Место практики</h4><address class="footer__address"><p>МКОУ СОШ №15</p><p>г.о. Нальчик</p><p>Руководитель: Бачиева Ф.А.</p></address></div>
+            </div>
+            <div class="footer__bottom"><p class="footer__copyright">Python: первые программы.</p><p class="footer__author">Гергоков Алихан Жамбулатович, специальность «Информационные системы и программирование»</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

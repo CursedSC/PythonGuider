@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактор кода — Python: первые программы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .playground-hero {
+            background: linear-gradient(135deg, #1E2A3A 0%, #306998 60%, #1F4A73 100%);
+            padding: 48px 0 40px;
+            color: white;
+        }
+        .playground-hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+        .playground-hero p  { opacity: 0.8; font-size: 1.05rem; }
+
+        .playground-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            height: calc(100vh - var(--header-height) - 180px);
+            min-height: 480px;
+        }
+
+        .playground-editor-panel,
+        .playground-output-panel {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #21252B;
+            padding: 10px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .panel-header__title {
+            font-family: var(--font-code);
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .panel-header__dots { display: flex; gap: 6px; }
+        .panel-header__dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot-red    { background: #FF5F57; }
+        .dot-yellow { background: #FEBC2E; }
+        .dot-green  { background: #28C840; }
+
+        #editor {
+            flex: 1;
+            font-family: var(--font-code);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            background: #282C34;
+            color: #ABB2BF;
+            border: none;
+            outline: none;
+            resize: none;
+            padding: 20px;
+            tab-size: 4;
+        }
+        #editor::placeholder { color: rgba(171,178,191,0.35); }
+
+        .playground-output-panel {
+            border-left: 2px solid rgba(255,255,255,0.06);
+        }
+        #output {
+            flex: 1;
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            background: #1E2228;
+            color: #98C379;
+            padding: 20px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        #output.has-error { color: #E06C75; }
+
+        .playground-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: #21252B;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .playground-examples {
+            padding: 32px 0 48px;
+        }
+        .playground-examples h2 {
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        .examples-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .example-chip {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            color: var(--text-primary);
+        }
+        .example-chip:hover {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        @media (max-width: 768px) {
+            .playground-layout {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+            #editor { min-height: 240px; }
+            #output { min-height: 160px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo">
+                <div class="logo__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 28C8 30 10 32 14 32H18L18 28L14 28C12 28 12 26 12 24V20C12 16 8 14 8 10C8 6 12 4 16 4H24C28 4 32 6 32 10V14C32 16 30 18 26 18H22L22 22L26 22C30 22 32 24 32 28C32 32 28 34 24 34H16" stroke="#306998" stroke-width="2.5" fill="none"/>
+                        <path d="M32 12C32 10 30 8 26 8H22L22 12L26 12C28 12 28 14 28 16V20C28 24 32 26 32 30C32 34 28 36 24 36H16C12 36 8 34 8 30V26C8 24 10 22 14 22H18L18 18L14 18C10 18 8 16 8 12" stroke="#FFD43B" stroke-width="2.5" fill="none"/>
+                    </svg>
+                </div>
+                <div class="logo__text">
+                    <span class="logo__title">Python</span>
+                    <span class="logo__subtitle">первые программы</span>
+                </div>
+            </a>
+            <nav class="nav" id="mainNav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="lessons.html" class="nav__link">Уроки</a></li>
+                    <li class="nav__item"><a href="reference.html" class="nav__link">Справочник</a></li>
+                    <li class="nav__item"><a href="examples.html" class="nav__link">Примеры</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему оформления">
+                <svg class="theme-toggle__icon theme-toggle__icon--sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg class="theme-toggle__icon theme-toggle__icon--moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+            <button class="burger" id="burgerMenu" aria-label="Открыть меню">
+                <span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="playground-hero">
+        <div class="container">
+            <h1>Редактор <span style="color:#FFD43B">Python</span></h1>
+            <p>Пиши и запускай код прямо в браузере — без установки. Поддерживается Python 3.</p>
+        </div>
+    </div>
+
+    <div class="playground-layout">
+        <!-- Редактор -->
+        <div class="playground-editor-panel">
+            <div class="panel-header">
+                <div class="panel-header__dots">
+                    <span class="panel-header__dot dot-red"></span>
+                    <span class="panel-header__dot dot-yellow"></span>
+                    <span class="panel-header__dot dot-green"></span>
+                </div>
+                <span class="panel-header__title">main.py</span>
+                <span></span>
+            </div>
+            <textarea id="editor" spellcheck="false" placeholder="# Введи свой Python-код здесь и нажми «Запустить»&#10;&#10;name = input('Как тебя зовут? ')&#10;print(f'Привет, {name}! Добро пожаловать в Python.')">name = input('Как тебя зовут? ')
+print(f'Привет, {name}! Добро пожаловать в Python.')</textarea>
+            <div class="playground-toolbar">
+                <button class="btn btn--primary" id="runBtn" onclick="runCode()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Запустить
+                </button>
+                <button class="btn btn--secondary" id="clearBtn" onclick="clearAll()">Очистить</button>
+            </div>
+        </div>
+
+        <!-- Вывод -->
+        <div class="playground-output-panel">
+            <div class="panel-header">
+                <span class="panel-header__title">Вывод</span>
+                <button onclick="document.getElementById('output').textContent=''" style="background:none;border:none;color:rgba(255,255,255,0.35);cursor:pointer;font-size:0.8rem;">очистить</button>
+            </div>
+            <div id="output">Нажми «Запустить» чтобы увидеть результат...</div>
+        </div>
+    </div>
+
+    <main class="main">
+        <div class="playground-examples container">
+            <h2>Быстрые примеры</h2>
+            <div class="examples-chips">
+                <button class="example-chip" onclick="loadExample('hello')">Привет, мир</button>
+                <button class="example-chip" onclick="loadExample('variables')">Переменные</button>
+                <button class="example-chip" onclick="loadExample('input')">Ввод данных</button>
+                <button class="example-chip" onclick="loadExample('ifelse')">Условие if-else</button>
+                <button class="example-chip" onclick="loadExample('while')">Цикл while</button>
+                <button class="example-chip" onclick="loadExample('for')">Цикл for</button>
+                <button class="example-chip" onclick="loadExample('list')">Список</button>
+                <button class="example-chip" onclick="loadExample('function')">Функция</button>
+                <button class="example-chip" onclick="loadExample('fizzbuzz')">FizzBuzz</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col"><a href="index.html" class="logo logo--footer"><span class="logo__title">Python</span><span class="logo__subtitle">первые программы</span></a><p class="footer__about">Бесплатное обучающее веб-приложение для начинающих программистов. Создано в рамках преддипломной практики на базе МКОУ СОШ №15 г.о. Нальчик.</p></div>
+                <div class="footer__col"><h4 class="footer__heading">Разделы сайта</h4><ul class="footer__nav"><li><a href="lessons.html">Уроки</a></li><li><a href="reference.html">Справочник</a></li><li><a href="examples.html">Примеры кода</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Полезные ссылки</h4><ul class="footer__nav"><li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Официальный сайт Python</a></li><li><a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Документация Python</a></li><li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Скачать Python</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Место практики</h4><address class="footer__address"><p>МКОУ СОШ №15</p><p>г.о. Нальчик</p><p>Руководитель: Бачиева Ф.А.</p></address></div>
+            </div>
+            <div class="footer__bottom"><p class="footer__copyright">Python: первые программы.</p><p class="footer__author">Гергоков Алихан Жамбулатович, специальность «Информационные системы и программирование»</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <!-- Skulpt: Python 3 в браузере -->
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+    <script>
+        const EXAMPLES = {
+            hello:     "print('Привет, мир!')\nprint('Это мой первый Python-код!')",
+            variables: "name = 'Алихан'\nage = 17\nheight = 1.75\n\nprint(f'Имя: {name}')\nprint(f'Возраст: {age}')\nprint(f'Рост: {height} м')\nprint(f'Тип name: {type(name).__name__}')",
+            input:     "name = input('Введи своё имя: ')\nyear = int(input('Введи год рождения: '))\nage = 2024 - year\nprint(f'Привет, {name}! Тебе примерно {age} лет.')",
+            ifelse:    "score = int(input('Введи оценку (0–100): '))\n\nif score >= 90:\n    grade = 'Отлично'\nelif score >= 75:\n    grade = 'Хорошо'\nelif score >= 60:\n    grade = 'Удовлетворительно'\nelse:\n    grade = 'Неудовлетворительно'\n\nprint(f'Оценка: {grade}')",
+            while:     "count = 1\nwhile count <= 5:\n    print(f'Итерация {count}')\n    count += 1\nprint('Цикл завершён!')",
+            for:       "fruits = ['яблоко', 'банан', 'вишня', 'груша']\n\nfor i, fruit in enumerate(fruits, start=1):\n    print(f'{i}. {fruit}')\n\nprint(f'Всего фруктов: {len(fruits)}')",
+            list:      "grades = [5, 4, 3, 5, 4, 5]\nprint(f'Оценки: {grades}')\nprint(f'Максимум: {max(grades)}')\nprint(f'Минимум: {min(grades)}')\nprint(f'Среднее: {sum(grades)/len(grades):.1f}')\n\ngrades.sort(reverse=True)\nprint(f'По убыванию: {grades}')",
+            function:  "def greet(name, greeting='Привет'):\n    return f'{greeting}, {name}!'\n\ndef is_even(n):\n    return n % 2 == 0\n\nprint(greet('Алихан'))\nprint(greet('Марина', 'Здравствуй'))\n\nfor n in range(1, 8):\n    status = 'чётное' if is_even(n) else 'нечётное'\n    print(f'{n} — {status}')",
+            fizzbuzz:  "for i in range(1, 21):\n    if i % 3 == 0 and i % 5 == 0:\n        print('FizzBuzz')\n    elif i % 3 == 0:\n        print('Fizz')\n    elif i % 5 == 0:\n        print('Buzz')\n    else:\n        print(i)"
+        };
+
+        function loadExample(key) {
+            document.getElementById('editor').value = EXAMPLES[key];
+            document.getElementById('output').textContent = '';
+            document.getElementById('output').classList.remove('has-error');
+        }
+
+        // Буфер для вывода (Skulpt накапливает вывод построчно)
+        let outputBuffer = '';
+
+        function builtinRead(x) {
+            if (Sk.builtinFiles === undefined || Sk.builtinFiles.files[x] === undefined) {
+                throw "Файл не найден: '" + x + "'";
+            }
+            return Sk.builtinFiles.files[x];
+        }
+
+        // Simulated input() — запрашиваем у пользователя через prompt()
+        function customInput(prompt) {
+            return new Promise(resolve => {
+                const answer = window.prompt(prompt || '');
+                resolve(answer === null ? '' : answer);
+            });
+        }
+
+        function runCode() {
+            const code = document.getElementById('editor').value;
+            const output = document.getElementById('output');
+            outputBuffer = '';
+            output.classList.remove('has-error');
+            output.textContent = '';
+
+            Sk.configure({
+                output: function(text) {
+                    outputBuffer += text;
+                    output.textContent = outputBuffer;
+                },
+                read: builtinRead,
+                inputfun: customInput,
+                inputfunTakesPrompt: true,
+                __future__: Sk.python3,
+            });
+
+            const runBtn = document.getElementById('runBtn');
+            runBtn.disabled = true;
+            runBtn.textContent = '⏳ Выполняется...';
+
+            Sk.misceval.asyncToPromise(() =>
+                Sk.importMainWithBody('<stdin>', false, code, true)
+            ).then(() => {
+                if (outputBuffer === '') {
+                    output.textContent = '(Программа завершена без вывода)';
+                    output.style.color = 'rgba(171,178,191,0.5)';
+                } else {
+                    output.style.color = '';
+                }
+            }).catch(err => {
+                output.classList.add('has-error');
+                output.textContent = err.toString();
+            }).finally(() => {
+                runBtn.disabled = false;
+                runBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px"><polygon points="5 3 19 12 5 21 5 3"/></svg>Запустить';
+            });
+        }
+
+        function clearAll() {
+            document.getElementById('editor').value = '';
+            document.getElementById('output').textContent = '';
+            document.getElementById('output').classList.remove('has-error');
+            document.getElementById('output').style.color = '';
+        }
+
+        // Предзаполнение редактора из URL ?code=... или ?sub=<id>
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var code = params.get('code');
+            var subId = params.get('sub');
+            if (code) {
+                try { document.getElementById('editor').value = decodeURIComponent(code); } catch(e) {}
+            } else if (subId && window.location.protocol !== 'file:') {
+                fetch('/api/submission/' + subId)
+                    .then(function(r){ return r.json(); })
+                    .then(function(d){ if (d.code) document.getElementById('editor').value = d.code; });
+            }
+        })();
+
+        // Tab в редакторе вставляет 4 пробела вместо переключения фокуса
+        document.getElementById('editor').addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                const start = this.selectionStart;
+                const end = this.selectionEnd;
+                this.value = this.value.substring(0, start) + '    ' + this.value.substring(end);
+                this.selectionStart = this.selectionEnd = start + 4;
+            }
+            // Ctrl+Enter или Cmd+Enter — запуск
+            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                e.preventDefault();
+                runCode();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 10: Итоговый проект — Python: первые программы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo">
+                <div class="logo__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 28C8 30 10 32 14 32H18L18 28L14 28C12 28 12 26 12 24V20C12 16 8 14 8 10C8 6 12 4 16 4H24C28 4 32 6 32 10V14C32 16 30 18 26 18H22L22 22L26 22C30 22 32 24 32 28C32 32 28 34 24 34H16" stroke="#306998" stroke-width="2.5" fill="none"/>
+                        <path d="M32 12C32 10 30 8 26 8H22L22 12L26 12C28 12 28 14 28 16V20C28 24 32 26 32 30C32 34 28 36 24 36H16C12 36 8 34 8 30V26C8 24 10 22 14 22H18L18 18L14 18C10 18 8 16 8 12" stroke="#FFD43B" stroke-width="2.5" fill="none"/>
+                    </svg>
+                </div>
+                <div class="logo__text">
+                    <span class="logo__title">Python</span>
+                    <span class="logo__subtitle">первые программы</span>
+                </div>
+            </a>
+            <nav class="nav" id="mainNav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="lessons.html" class="nav__link nav__link--active">Уроки</a></li>
+                    <li class="nav__item"><a href="reference.html" class="nav__link">Справочник</a></li>
+                    <li class="nav__item"><a href="examples.html" class="nav__link">Примеры</a></li>
+                    <li class="nav__item"><a href="playground.html" class="nav__link">Редактор</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему оформления">
+                <svg class="theme-toggle__icon theme-toggle__icon--sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg class="theme-toggle__icon theme-toggle__icon--moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+            <button class="burger" id="burgerMenu" aria-label="Открыть меню">
+                <span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="lesson-layout">
+            <aside class="lesson-sidebar" id="lessonSidebar">
+                <div class="lesson-sidebar__header">
+                    <h3 class="lesson-sidebar__title">Содержание курса</h3>
+                    <div class="progress-bar">
+                        <div class="progress-bar__fill" style="width: 90%;"></div>
+                    </div>
+                    <span class="progress-bar__label">Пройдено 9 из 10</span>
+                </div>
+                <nav class="lesson-nav">
+                    <a href="lesson-01.html" class="lesson-nav__link lesson-nav__link--completed">1. Что такое Python</a>
+                    <a href="lesson-02.html" class="lesson-nav__link lesson-nav__link--completed">2. Установка и первый запуск</a>
+                    <a href="lesson-03.html" class="lesson-nav__link lesson-nav__link--completed">3. Переменные и типы данных</a>
+                    <a href="lesson-04.html" class="lesson-nav__link lesson-nav__link--completed">4. Ввод и вывод данных</a>
+                    <a href="lesson-05.html" class="lesson-nav__link lesson-nav__link--completed">5. Условный оператор if-else</a>
+                    <a href="lesson-06.html" class="lesson-nav__link lesson-nav__link--completed">6. Цикл while</a>
+                    <a href="lesson-07.html" class="lesson-nav__link lesson-nav__link--completed">7. Цикл for</a>
+                    <a href="lesson-08.html" class="lesson-nav__link lesson-nav__link--completed">8. Списки</a>
+                    <a href="lesson-09.html" class="lesson-nav__link lesson-nav__link--completed">9. Функции</a>
+                    <a href="lesson-10.html" class="lesson-nav__link lesson-nav__link--active">10. Итоговый проект</a>
+                </nav>
+            </aside>
+
+            <article class="lesson-content">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                    <ol class="breadcrumbs__list">
+                        <li class="breadcrumbs__item"><a href="index.html">Главная</a></li>
+                        <li class="breadcrumbs__item"><a href="lessons.html">Уроки</a></li>
+                        <li class="breadcrumbs__item breadcrumbs__item--current">Урок 10: Итоговый проект</li>
+                    </ol>
+                </nav>
+
+                <header class="lesson-header">
+                    <h1 class="lesson-title">Урок 10: Итоговый проект — Записная книжка</h1>
+                    <div class="lesson-meta">
+                        <span class="badge badge--time">≈ 30 минут</span>
+                        <span class="badge badge--level">Средний</span>
+                    </div>
+                </header>
+
+                <div class="goal-block">
+                    <div class="goal-block__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#306998" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </div>
+                    <div class="goal-block__text">
+                        <strong>Цель урока:</strong> Применить все изученные темы — переменные, ввод-вывод, условия, циклы, списки и функции — в одном полноценном проекте: консольной записной книжке.
+                    </div>
+                </div>
+
+                <section class="lesson-section">
+                    <h2>Что мы будем создавать?</h2>
+                    <p>Мы напишем программу-записную книжку, которая умеет:</p>
+                    <ul class="lesson-list">
+                        <li>Добавлять записи (имя + номер телефона).</li>
+                        <li>Выводить список всех записей.</li>
+                        <li>Искать запись по имени.</li>
+                        <li>Удалять запись по имени.</li>
+                        <li>Выходить из программы.</li>
+                    </ul>
+                    <p>Это консольная программа — она работает в терминале, без графического интерфейса. Именно с таких программ начинается путь любого программиста!</p>
+
+                    <div class="tip-block">
+                        <div class="tip-block__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+                        </div>
+                        <div class="tip-block__text">
+                            <strong>Совет:</strong> Перед написанием кода всегда полезно сделать план — что программа должна уметь делать и как это реализовать. Такой подход называется <em>алгоритмическим мышлением</em>.
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Шаг 1: Структура данных</h2>
+                    <p>Для хранения контактов будем использовать список словарей (каждый словарь — один контакт с полями <code>name</code> и <code>phone</code>). Но чтобы не усложнять, упростим: будем хранить контакты как список строк в формате «Имя: Номер».</p>
+                    <p>Начнём с простого варианта — хранение в двух параллельных списках:</p>
+
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__lang">Python</span>
+                            <button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                        </div>
+                        <pre class="code-block__body"><code class="language-python">names = []   # Список имён
+phones = []  # Список телефонов (индексы совпадают с names)</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Шаг 2: Функции для каждого действия</h2>
+                    <p>Разобьём логику на отдельные функции — по одной на каждое действие пользователя:</p>
+
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__lang">Python</span>
+                            <button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                        </div>
+                        <pre class="code-block__body"><code class="language-python">def add_contact(names, phones):
+    """Добавить новый контакт."""
+    name = input("Имя: ").strip()
+    phone = input("Телефон: ").strip()
+    names.append(name)
+    phones.append(phone)
+    print(f"Контакт '{name}' добавлен.")
+
+
+def show_all(names, phones):
+    """Показать все контакты."""
+    if not names:
+        print("Книжка пуста.")
+        return
+    print("\n=== Все контакты ===")
+    for i, (name, phone) in enumerate(zip(names, phones), start=1):
+        print(f"{i}. {name}: {phone}")
+    print()
+
+
+def search_contact(names, phones):
+    """Найти контакт по имени."""
+    query = input("Введи имя для поиска: ").strip().lower()
+    found = False
+    for i, name in enumerate(names):
+        if query in name.lower():
+            print(f"Найден: {name} — {phones[i]}")
+            found = True
+    if not found:
+        print("Контакт не найден.")
+
+
+def delete_contact(names, phones):
+    """Удалить контакт по имени."""
+    query = input("Введи имя для удаления: ").strip()
+    if query in names:
+        index = names.index(query)
+        names.pop(index)
+        phones.pop(index)
+        print(f"Контакт '{query}' удалён.")
+    else:
+        print("Контакт не найден.")</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Шаг 3: Главный цикл программы</h2>
+                    <p>Теперь соединим все функции в главном цикле, который показывает меню и обрабатывает выбор пользователя:</p>
+
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__lang">Python</span>
+                            <button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                        </div>
+                        <pre class="code-block__body"><code class="language-python">def main():
+    names = []
+    phones = []
+
+    print("=== Записная книжка ===")
+
+    while True:
+        print("\nМеню:")
+        print("1 — Добавить контакт")
+        print("2 — Показать все")
+        print("3 — Найти контакт")
+        print("4 — Удалить контакт")
+        print("0 — Выйти")
+
+        choice = input("\nВаш выбор: ").strip()
+
+        if choice == "1":
+            add_contact(names, phones)
+        elif choice == "2":
+            show_all(names, phones)
+        elif choice == "3":
+            search_contact(names, phones)
+        elif choice == "4":
+            delete_contact(names, phones)
+        elif choice == "0":
+            print("До свидания!")
+            break
+        else:
+            print("Неверный ввод. Выбери цифру от 0 до 4.")
+
+# Запуск программы
+main()</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Пример работы программы</h2>
+
+                    <div class="code-block">
+                        <div class="code-block__header"><span class="code-block__lang">Пример сессии</span></div>
+                        <pre class="code-block__body code-block__body--output"><code>=== Записная книжка ===
+
+Меню:
+1 — Добавить контакт
+2 — Показать все
+3 — Найти контакт
+4 — Удалить контакт
+0 — Выйти
+
+Ваш выбор: 1
+Имя: Алихан
+Телефон: +7-928-000-00-01
+Контакт 'Алихан' добавлен.
+
+Ваш выбор: 1
+Имя: Марина
+Телефон: +7-928-000-00-02
+Контакт 'Марина' добавлен.
+
+Ваш выбор: 2
+
+=== Все контакты ===
+1. Алихан: +7-928-000-00-01
+2. Марина: +7-928-000-00-02
+
+Ваш выбор: 3
+Введи имя для поиска: али
+Найден: Алихан — +7-928-000-00-01
+
+Ваш выбор: 0
+До свидания!</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Что использовали в проекте?</h2>
+                    <p>Оглянись назад — в этом коротком проекте задействованы почти все темы курса:</p>
+                    <ul class="lesson-list">
+                        <li><strong>Переменные</strong> — <code>names</code>, <code>phones</code>, <code>choice</code></li>
+                        <li><strong>Ввод/вывод</strong> — <code>input()</code>, <code>print()</code></li>
+                        <li><strong>Условия</strong> — <code>if-elif-else</code> для обработки меню</li>
+                        <li><strong>Цикл while</strong> — главный цикл программы</li>
+                        <li><strong>Цикл for</strong> — перебор контактов в <code>show_all()</code> и <code>search_contact()</code></li>
+                        <li><strong>Списки</strong> — хранение имён и телефонов</li>
+                        <li><strong>Функции</strong> — разделение логики на <code>add_contact</code>, <code>show_all</code> и т.д.</li>
+                    </ul>
+
+                    <div class="tip-block">
+                        <div class="tip-block__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+                        </div>
+                        <div class="tip-block__text">
+                            <strong>Попробуй улучшить проект самостоятельно!</strong> Добавь возможность редактировать номер, или сохранение в файл, или проверку формата телефона — это отличная практика для закрепления знаний.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Поздравление -->
+                <section class="lesson-section" style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #306998, #1F4A73); border-radius: 16px; color: white; margin-top: 2rem;">
+                    <h2 style="color: #FFD43B; margin-bottom: 1rem;">Поздравляем! Курс пройден!</h2>
+                    <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 1.5rem;">Ты изучил основы Python: переменные, типы данных, условия, циклы, списки и функции. Это фундамент, на котором строятся любые программы.</p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="reference.html" class="btn btn--secondary btn--large">Открыть справочник</a>
+                        <a href="examples.html" class="btn btn--large" style="background: #FFD43B; color: #1E2A3A; border: none;">Смотреть примеры кода</a>
+                    </div>
+                </section>
+
+                <!-- Тест для самопроверки -->
+                <section class="quiz-block">
+                    <h2 class="quiz-block__title">Тест для самопроверки</h2>
+
+                    <div class="quiz-question" data-correct="b">
+                        <p class="quiz-question__text"><strong>Вопрос 1.</strong> Какая структура данных используется для хранения контактов в проекте «Записная книжка»?</p>
+                        <label class="quiz-label"><input type="radio" name="q10_1" value="a"> Словарь (<code>dict</code>)</label>
+                        <label class="quiz-label"><input type="radio" name="q10_1" value="b"> Два параллельных списка (<code>list</code>)</label>
+                        <label class="quiz-label"><input type="radio" name="q10_1" value="c"> Множество (<code>set</code>)</label>
+                    </div>
+
+                    <div class="quiz-question" data-correct="c">
+                        <p class="quiz-question__text"><strong>Вопрос 2.</strong> Какой цикл обеспечивает работу главного меню программы?</p>
+                        <label class="quiz-label"><input type="radio" name="q10_2" value="a"> Цикл <code>for</code> по списку команд</label>
+                        <label class="quiz-label"><input type="radio" name="q10_2" value="b"> Рекурсивная функция</label>
+                        <label class="quiz-label"><input type="radio" name="q10_2" value="c"> Бесконечный цикл <code>while True</code> с выходом через <code>break</code></label>
+                    </div>
+
+                    <div class="quiz-question" data-correct="a">
+                        <p class="quiz-question__text"><strong>Вопрос 3.</strong> Что произойдёт при вызове <code>names.index("Алихан")</code>, если имя не найдено?</p>
+                        <label class="quiz-label"><input type="radio" name="q10_3" value="a"> Будет выброшено исключение <code>ValueError</code></label>
+                        <label class="quiz-label"><input type="radio" name="q10_3" value="b"> Вернётся <code>None</code></label>
+                        <label class="quiz-label"><input type="radio" name="q10_3" value="c"> Вернётся <code>-1</code></label>
+                    </div>
+
+                    <button class="btn btn--secondary quiz-block__check">Проверить ответы</button>
+                    <div class="quiz-result" style="display:none"></div>
+
+                    <!-- Отправка кода на проверку -->
+                    <div class="quiz-submit-block" id="quizSubmitBlock" style="display:none; margin-top:1.5rem; border-top:1px solid var(--border-color); padding-top:1.5rem;">
+                        <h3 style="font-size:1rem; margin-bottom:0.75rem; color:var(--text-primary);">Напиши своё решение проекта</h3>
+                        <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:0.75rem;">Вставь код своей «Записной книжки» — преподаватель проверит и одобрит его в редакторе.</p>
+                        <textarea id="studentCode10" rows="10" placeholder="# Вставь сюда свой Python-код..." style="width:100%;font-family:'JetBrains Mono',monospace;font-size:0.88rem;padding:12px;border-radius:8px;border:1px solid var(--border-color);background:var(--bg-secondary);color:var(--text-primary);resize:vertical;box-sizing:border-box;"></textarea>
+                        <div style="display:flex;gap:0.75rem;margin-top:0.75rem;flex-wrap:wrap;">
+                            <button class="btn btn--primary" id="submitCode10">Отправить на проверку</button>
+                            <span id="submitStatus10" style="align-self:center;font-size:0.9rem;color:var(--text-secondary);"></span>
+                        </div>
+                    </div>
+                </section>
+
+                <script>
+                (function() {
+                    var checkBtn = document.querySelector('.quiz-block__check');
+                    if (!checkBtn) return;
+                    checkBtn.addEventListener('click', function() {
+                        var questions = document.querySelectorAll('.quiz-question');
+                        var correct = 0;
+                        var total = questions.length;
+                        questions.forEach(function(q) {
+                            var rightAns = q.dataset.correct;
+                            var chosen = q.querySelector('input[type="radio"]:checked');
+                            q.querySelectorAll('.quiz-label').forEach(function(lbl) {
+                                lbl.style.color = '';
+                                lbl.style.fontWeight = '';
+                            });
+                            if (!chosen) return;
+                            var chosenVal = chosen.value;
+                            var labels = q.querySelectorAll('.quiz-label');
+                            labels.forEach(function(lbl) {
+                                var inp = lbl.querySelector('input');
+                                if (inp.value === rightAns) {
+                                    lbl.style.color = '#48BB78';
+                                    lbl.style.fontWeight = '600';
+                                }
+                                if (inp.value === chosenVal && chosenVal !== rightAns) {
+                                    lbl.style.color = '#E53E3E';
+                                }
+                            });
+                            if (chosenVal === rightAns) correct++;
+                        });
+                        var result = document.querySelector('.quiz-result');
+                        result.style.display = 'block';
+                        if (correct === total) {
+                            result.className = 'quiz-result quiz-result--success';
+                            result.textContent = '✓ Отлично! Все ' + total + ' ответа верны.';
+                        } else {
+                            result.className = 'quiz-result quiz-result--error';
+                            result.textContent = 'Правильных ответов: ' + correct + ' из ' + total + '. Попробуй ещё раз!';
+                        }
+                    });
+
+                    // Показываем форму отправки только авторизованным пользователям
+                    if (window.location.protocol !== 'file:') {
+                        fetch('/api/me').then(function(r){ return r.json(); }).then(function(data){
+                            if (data.logged_in) {
+                                document.getElementById('quizSubmitBlock').style.display = 'block';
+                            }
+                        });
+                    }
+
+                    var submitBtn = document.getElementById('submitCode10');
+                    if (submitBtn) {
+                        submitBtn.addEventListener('click', function() {
+                            var code = document.getElementById('studentCode10').value.trim();
+                            var status = document.getElementById('submitStatus10');
+                            if (!code) { status.textContent = 'Введи код перед отправкой.'; return; }
+                            this.disabled = true;
+                            status.textContent = 'Отправляем...';
+                            fetch('/api/submit-code', {
+                                method: 'POST',
+                                headers: {'Content-Type': 'application/json'},
+                                body: JSON.stringify({
+                                    lesson: 'lesson-10',
+                                    task_title: 'Итоговый проект — Записная книжка',
+                                    student_code: code
+                                })
+                            }).then(function(r){ return r.json(); }).then(function(d){
+                                if (d.ok) {
+                                    status.style.color = '#48BB78';
+                                    status.textContent = '✓ ' + d.message;
+                                    document.getElementById('submitCode10').disabled = true;
+                                } else {
+                                    status.style.color = '#E53E3E';
+                                    status.textContent = d.error;
+                                    document.getElementById('submitCode10').disabled = false;
+                                }
+                            }).catch(function(){
+                                status.textContent = 'Ошибка сети. Убедись что сервер запущен.';
+                                document.getElementById('submitCode10').disabled = false;
+                            });
+                        });
+                    }
+                })();
+                </script>
+
+                <nav class="lesson-navigation">
+                    <a href="lesson-09.html" class="btn btn--secondary lesson-navigation__prev">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                        Предыдущий урок
+                    </a>
+                    <a href="lessons.html" class="btn btn--primary lesson-navigation__next">
+                        К списку уроков
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </nav>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col"><a href="index.html" class="logo logo--footer"><span class="logo__title">Python</span><span class="logo__subtitle">первые программы</span></a><p class="footer__about">Бесплатное обучающее веб-приложение для начинающих программистов. Создано в рамках преддипломной практики на базе МКОУ СОШ №15 г.о. Нальчик.</p></div>
+                <div class="footer__col"><h4 class="footer__heading">Разделы сайта</h4><ul class="footer__nav"><li><a href="lessons.html">Уроки</a></li><li><a href="reference.html">Справочник</a></li><li><a href="examples.html">Примеры кода</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Полезные ссылки</h4><ul class="footer__nav"><li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Официальный сайт Python</a></li><li><a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Документация Python</a></li><li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Скачать Python</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Место практики</h4><address class="footer__address"><p>МКОУ СОШ №15</p><p>г.о. Нальчик</p><p>Руководитель: Бачиева Ф.А.</p></address></div>
+            </div>
+            <div class="footer__bottom"><p class="footer__copyright">Python: первые программы.</p><p class="footer__author">Гергоков Алихан Жамбулатович, специальность «Информационные системы и программирование»</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

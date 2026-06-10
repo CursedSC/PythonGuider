@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 3: Переменные и типы данных — Python: первые программы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo">
+                <div class="logo__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 28C8 30 10 32 14 32H18L18 28L14 28C12 28 12 26 12 24V20C12 16 8 14 8 10C8 6 12 4 16 4H24C28 4 32 6 32 10V14C32 16 30 18 26 18H22L22 22L26 22C30 22 32 24 32 28C32 32 28 34 24 34H16" stroke="#306998" stroke-width="2.5" fill="none"/>
+                        <path d="M32 12C32 10 30 8 26 8H22L22 12L26 12C28 12 28 14 28 16V20C28 24 32 26 32 30C32 34 28 36 24 36H16C12 36 8 34 8 30V26C8 24 10 22 14 22H18L18 18L14 18C10 18 8 16 8 12" stroke="#FFD43B" stroke-width="2.5" fill="none"/>
+                    </svg>
+                </div>
+                <div class="logo__text"><span class="logo__title">Python</span><span class="logo__subtitle">первые программы</span></div>
+            </a>
+            <nav class="nav" id="mainNav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="lessons.html" class="nav__link nav__link--active">Уроки</a></li>
+                    <li class="nav__item"><a href="reference.html" class="nav__link">Справочник</a></li>
+                    <li class="nav__item"><a href="examples.html" class="nav__link">Примеры</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему оформления">
+                <svg class="theme-toggle__icon theme-toggle__icon--sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg class="theme-toggle__icon theme-toggle__icon--moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+            <button class="burger" id="burgerMenu" aria-label="Открыть меню"><span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span></button>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="lesson-layout">
+            <aside class="lesson-sidebar" id="lessonSidebar">
+                <div class="lesson-sidebar__header">
+                    <h3 class="lesson-sidebar__title">Содержание курса</h3>
+                    <div class="progress-bar"><div class="progress-bar__fill" style="width: 20%;"></div></div>
+                    <span class="progress-bar__label">Пройдено 2 из 10</span>
+                </div>
+                <nav class="lesson-nav">
+                    <a href="lesson-01.html" class="lesson-nav__link lesson-nav__link--completed">1. Что такое Python</a>
+                    <a href="lesson-02.html" class="lesson-nav__link lesson-nav__link--completed">2. Установка и первый запуск</a>
+                    <a href="lesson-03.html" class="lesson-nav__link lesson-nav__link--active">3. Переменные и типы данных</a>
+                    <a href="lesson-04.html" class="lesson-nav__link">4. Ввод и вывод данных</a>
+                    <a href="lesson-05.html" class="lesson-nav__link">5. Условный оператор if-else</a>
+                    <a href="lesson-06.html" class="lesson-nav__link">6. Циклы while</a>
+                    <a href="lesson-07.html" class="lesson-nav__link">7. Циклы for</a>
+                    <a href="lesson-08.html" class="lesson-nav__link">8. Списки</a>
+                    <a href="lesson-09.html" class="lesson-nav__link">9. Функции</a>
+                    <a href="lesson-10.html" class="lesson-nav__link">10. Итоговый проект</a>
+                </nav>
+            </aside>
+
+            <article class="lesson-content">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                    <ol class="breadcrumbs__list">
+                        <li class="breadcrumbs__item"><a href="index.html">Главная</a></li>
+                        <li class="breadcrumbs__item"><a href="lessons.html">Уроки</a></li>
+                        <li class="breadcrumbs__item breadcrumbs__item--current">Урок 3: Переменные и типы данных</li>
+                    </ol>
+                </nav>
+
+                <header class="lesson-header">
+                    <h1 class="lesson-title">Урок 3: Переменные и типы данных</h1>
+                    <div class="lesson-meta"><span class="badge badge--time">≈ 20 минут</span><span class="badge badge--level">Начальный</span></div>
+                </header>
+
+                <div class="goal-block">
+                    <div class="goal-block__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#306998" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                    <div class="goal-block__text"><strong>Цель урока:</strong> Понять, что такое переменные, как создавать их в Python, и познакомиться с основными типами данных: целые числа, дробные числа, строки и булевы значения.</div>
+                </div>
+
+                <section class="lesson-section">
+                    <h2>Что такое переменная?</h2>
+                    <p>Представь, что у тебя есть коробка с наклейкой. На наклейке написано название, а внутри коробки лежит какой-то предмет. В программировании <strong>переменная</strong> — это такая «коробка» с именем, в которой можно хранить данные.</p>
+                    <p>У каждой переменной есть:</p>
+                    <ul class="lesson-list">
+                        <li><strong>Имя</strong> — по нему мы обращаемся к переменной (например, <code>name</code>, <code>age</code>, <code>score</code>).</li>
+                        <li><strong>Значение</strong> — то, что хранится в переменной (например, <code>"Алихан"</code>, <code>17</code>, <code>95.5</code>).</li>
+                        <li><strong>Тип данных</strong> — определяет, какого рода информация хранится (число, текст и т.д.).</li>
+                    </ul>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Создание переменных в Python</h2>
+                    <p>В Python переменная создаётся в тот момент, когда ты впервые присваиваешь ей значение. Для этого используется знак <code>=</code> (оператор присваивания).</p>
+                    <div class="code-block">
+                        <div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                        <pre class="code-block__body"><code class="language-python">name = "Алихан"      # Переменная name хранит строку
+age = 17             # Переменная age хранит целое число
+height = 1.75        # Переменная height хранит дробное число
+is_student = True    # Переменная is_student хранит логическое значение
+
+print(name)
+print(age)
+print(height)
+print(is_student)</code></pre>
+                    </div>
+                    <p>Результат:</p>
+                    <div class="code-block">
+                        <div class="code-block__header"><span class="code-block__lang">Результат</span></div>
+                        <pre class="code-block__body code-block__body--output"><code>Алихан
+17
+1.75
+True</code></pre>
+                    </div>
+                    <p>Обрати внимание: Python сам определяет тип переменной по тому, какое значение мы в неё положили. Это называется <strong>динамическая типизация</strong>.</p>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Основные типы данных в Python</h2>
+                    
+                    <h3>1. Целые числа (int)</h3>
+                    <p>Целые числа — положительные, отрицательные и ноль без дробной части.</p>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                        <pre class="code-block__body"><code class="language-python">students = 25
+temperature = -5
+zero = 0
+big_number = 1_000_000  # Подчёркивания для удобства чтения
+
+print(type(students))   # <class 'int'></code></pre>
+                    </div>
+
+                    <h3>2. Дробные числа (float)</h3>
+                    <p>Числа с плавающей точкой — числа с дробной частью.</p>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                        <pre class="code-block__body"><code class="language-python">price = 199.99
+pi = 3.14159
+negative_float = -0.5
+
+print(type(pi))  # <class 'float'></code></pre>
+                    </div>
+
+                    <h3>3. Строки (str)</h3>
+                    <p>Строка — это последовательность символов (текст). В Python строки заключаются в кавычки: одинарные (<code>'...'</code>) или двойные (<code>"..."</code>).</p>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                        <pre class="code-block__body"><code class="language-python">city = "Нальчик"
+language = 'Python'
+empty = ""  # Пустая строка
+
+print(type(city))  # <class 'str'></code></pre>
+                    </div>
+
+                    <h3>4. Булевы значения (bool)</h3>
+                    <p>Логический тип данных, который может принимать только два значения: <code>True</code> (истина) или <code>False</code> (ложь).</p>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                        <pre class="code-block__body"><code class="language-python">is_python_easy = True
+is_raining = False
+
+print(type(is_python_easy))  # <class 'bool'></code></pre>
+                    </div>
+
+                    <div class="important-block">
+                        <div class="important-block__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFD43B" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+                        <div class="important-block__text"><strong>Важно:</strong> <code>True</code> и <code>False</code> пишутся с большой буквы! <code>true</code> или <code>TRUE</code> — неправильно, Python выдаст ошибку.</div>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Правила именования переменных</h2>
+                    <p>В Python есть несколько правил для имён переменных:</p>
+                    <ul class="lesson-list">
+                        <li>Имя может содержать буквы (латиницу), цифры и знак подчёркивания <code>_</code>.</li>
+                        <li>Имя <strong>не может</strong> начинаться с цифры.</li>
+                        <li>Нельзя использовать зарезервированные слова Python (<code>if</code>, <code>for</code>, <code>while</code>, <code>class</code> и др.).</li>
+                        <li>Python <strong>чувствителен к регистру</strong>: <code>name</code> и <code>Name</code> — это разные переменные.</li>
+                    </ul>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                        <pre class="code-block__body"><code class="language-python"># Правильные имена
+user_name = "Алихан"
+age2 = 17
+_salary = 50000
+
+# Неправильные имена (раскомментируй — будет ошибка)
+# 2name = "Ошибка"     # Нельзя начинать с цифры
+# if = 10              # Нельзя использовать ключевые слова
+# my-name = "Ошибка"   # Дефис не разрешён (используй _)</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Изменение значений переменных</h2>
+                    <p>Значение переменной можно изменить в любой момент. Новая «коробка» заменит старую.</p>
+                    <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                        <pre class="code-block__body"><code class="language-python">x = 10
+print(x)  # 10
+
+x = 25
+print(x)  # 25
+
+x = "Теперь тут строка"
+print(x)  # Теперь тут строка</code></pre>
+                    </div>
+                    <p>Python позволяет даже изменить тип данных, хранящихся в переменной (хотя на практике лучше так не делать без необходимости).</p>
+                </section>
+
+                <section class="task-block">
+                    <h2 class="task-block__title">Задание для самопроверки</h2>
+                    <div class="task-block__question">
+                        <p>Создай переменные для хранения следующей информации о себе:</p>
+                        <ol>
+                            <li>Имя (строка)</li>
+                            <li>Фамилия (строка)</li>
+                            <li>Возраст (целое число)</li>
+                            <li>Рост в метрах (дробное число)</li>
+                            <li>Любишь ли ты программировать (булево значение)</li>
+                        </ol>
+                        <p>Выведи тип каждой переменной с помощью функции <code>type()</code>.</p>
+                    </div>
+                    <button class="btn btn--secondary task-block__toggle" id="showAnswer3">Показать пример решения</button>
+                    <div class="task-block__answer" id="answer3" style="display: none;">
+                        <div class="code-block"><div class="code-block__header"><span class="code-block__lang">Python</span></div>
+                            <pre class="code-block__body"><code class="language-python">first_name = "Алихан"
+last_name = "Гергоков"
+age = 17
+height = 1.78
+loves_programming = True
+
+print(type(first_name))       # <class 'str'>
+print(type(last_name))        # <class 'str'>
+print(type(age))              # <class 'int'>
+print(type(height))           # <class 'float'>
+print(type(loves_programming))# <class 'bool'></code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <nav class="lesson-navigation">
+                    <a href="lesson-02.html" class="btn btn--secondary lesson-navigation__prev">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                        Предыдущий урок
+                    </a>
+                    <a href="lesson-04.html" class="btn btn--primary lesson-navigation__next">
+                        Следующий урок
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </nav>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col"><a href="index.html" class="logo logo--footer"><span class="logo__title">Python</span><span class="logo__subtitle">первые программы</span></a><p class="footer__about">Бесплатное обучающее веб-приложение для начинающих программистов. Создано в рамках преддипломной практики на базе МКОУ СОШ №15 г.о. Нальчик.</p></div>
+                <div class="footer__col"><h4 class="footer__heading">Разделы сайта</h4><ul class="footer__nav"><li><a href="lessons.html">Уроки</a></li><li><a href="reference.html">Справочник</a></li><li><a href="examples.html">Примеры кода</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Полезные ссылки</h4><ul class="footer__nav"><li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Официальный сайт Python</a></li><li><a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Документация Python</a></li><li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Скачать Python</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Место практики</h4><address class="footer__address"><p>МКОУ СОШ №15</p><p>г.о. Нальчик</p><p>Руководитель: Бачиева Ф.А.</p></address></div>
+            </div>
+            <div class="footer__bottom"><p class="footer__copyright">Python: первые программы.</p><p class="footer__author">Гергоков Алихан Жамбулатович, специальность «Информационные системы и программирование»</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script>
+        document.getElementById('showAnswer3').addEventListener('click', function() {
+            const answer = document.getElementById('answer3');
+            if (answer.style.display === 'none') { answer.style.display = 'block'; this.textContent = 'Скрыть пример решения'; }
+            else { answer.style.display = 'none'; this.textContent = 'Показать пример решения'; }
+        });
+    </script>
+</body>
+</html>

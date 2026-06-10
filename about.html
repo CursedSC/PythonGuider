@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О проекте — Python: первые программы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo">
+                <div class="logo__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 28C8 30 10 32 14 32H18L18 28L14 28C12 28 12 26 12 24V20C12 16 8 14 8 10C8 6 12 4 16 4H24C28 4 32 6 32 10V14C32 16 30 18 26 18H22L22 22L26 22C30 22 32 24 32 28C32 32 28 34 24 34H16" stroke="#306998" stroke-width="2.5" fill="none"/>
+                        <path d="M32 12C32 10 30 8 26 8H22L22 12L26 12C28 12 28 14 28 16V20C28 24 32 26 32 30C32 34 28 36 24 36H16C12 36 8 34 8 30V26C8 24 10 22 14 22H18L18 18L14 18C10 18 8 16 8 12" stroke="#FFD43B" stroke-width="2.5" fill="none"/>
+                    </svg>
+                </div>
+                <div class="logo__text">
+                    <span class="logo__title">Python</span>
+                    <span class="logo__subtitle">первые программы</span>
+                </div>
+            </a>
+            <nav class="nav" id="mainNav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="lessons.html" class="nav__link">Уроки</a></li>
+                    <li class="nav__item"><a href="reference.html" class="nav__link">Справочник</a></li>
+                    <li class="nav__item"><a href="examples.html" class="nav__link">Примеры</a></li>
+                    <li class="nav__item"><a href="playground.html" class="nav__link">Редактор</a></li>
+                    <li class="nav__item"><a href="practice.html" class="nav__link">Практика</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link nav__link--active">О проекте</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему оформления">
+                <svg class="theme-toggle__icon theme-toggle__icon--sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="theme-toggle__icon theme-toggle__icon--moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+            <button class="burger" id="burgerMenu" aria-label="Открыть меню">
+                <span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-hero__title">О проекте</h1>
+                <p class="page-hero__subtitle">«Python: первые программы» — бесплатный образовательный ресурс для школьников, которые хотят научиться программировать с нуля на русском языке.</p>
+            </div>
+        </section>
+
+        <!-- Цель проекта -->
+        <section class="about-section">
+            <div class="container container--narrow">
+                <div class="about-grid">
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#306998" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                        </div>
+                        <h3 class="feature-card__title">Цель проекта</h3>
+                        <p class="feature-card__desc">Дать школьникам 7–11 классов простой, понятный и бесплатный старт в программировании на Python — без лишней теории, сразу к практике.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#306998" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3 class="feature-card__title">Для кого создан</h3>
+                        <p class="feature-card__desc">Для школьников, учителей информатики и всех, кто хочет начать программировать с нуля. Никакого предварительного опыта не требуется.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#306998" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                        </div>
+                        <h3 class="feature-card__title">Почему Python?</h3>
+                        <p class="feature-card__desc">Python — самый популярный язык для обучения в мире. Простой синтаксис, огромное сообщество, разрешён на ЕГЭ по информатике. Идеальный первый язык.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#306998" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        </div>
+                        <h3 class="feature-card__title">Чем полезен</h3>
+                        <p class="feature-card__desc">Полностью на русском языке. Бесплатный доступ ко всем 18 урокам, справочнику, примерам кода и встроенному редактору.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Темы курса -->
+        <section class="about-topics">
+            <div class="container container--narrow">
+                <h2 class="section-title">Темы, которые изучаются</h2>
+                <p class="section-subtitle">Курс построен по принципу «от простого к сложному» — каждый урок опирается на предыдущий.</p>
+                <div class="topics-table-wrap">
+                    <table class="topics-table">
+                        <thead>
+                            <tr>
+                                <th>Блок</th>
+                                <th>Темы</th>
+                                <th>Уроки</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge badge--level">Основы</span></td>
+                                <td>Что такое Python, установка, первая программа, переменные и типы данных, ввод и вывод</td>
+                                <td>1–3</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge--level">Логика</span></td>
+                                <td>Условный оператор if/elif/else, строки и методы, циклы while и for</td>
+                                <td>4–7</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge--level">Структуры</span></td>
+                                <td>Списки, кортежи, словари, множества, функции</td>
+                                <td>8–9</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge--time">Проект 1</span></td>
+                                <td>Итоговый проект «Записная книжка» — применение всех изученных тем</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge--level">Средний уровень</span></td>
+                                <td>Файлы, исключения (try/except), модули math и random, генераторы списков, словари углублённо</td>
+                                <td>11–15</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge--level">Продвинутый</span></td>
+                                <td>Основы ООП (классы, объекты), рекурсия</td>
+                                <td>16–17</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge--time">Проект 2</span></td>
+                                <td>Итоговый проект «Угадай число» — игра с применением случайных чисел, цикла, функций</td>
+                                <td>18</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- О разработчике -->
+        <section class="about-author">
+            <div class="container container--narrow">
+                <div class="author-card">
+                    <div class="author-card__avatar">АГ</div>
+                    <div class="author-card__info">
+                        <h3 class="author-card__name">Гергоков Алихан Жамбулатович</h3>
+                        <p class="author-card__role">Студент, группа ИС-43, специальность 09.02.07 «Информационные системы и программирование»</p>
+                        <p class="author-card__desc">Проект разработан в рамках преддипломной практики на базе <strong>МКОУ СОШ №15 г.о. Нальчик</strong>.<br>Руководитель практики: <strong>Бачиева Ф.А.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="about-cta">
+            <div class="container">
+                <h2>Готов начать?</h2>
+                <p>Первый урок займёт всего 10 минут — познакомишься с Python и напишешь свою первую программу.</p>
+                <div class="about-cta__btns">
+                    <a href="lessons.html" class="btn btn--primary btn--large">Перейти к урокам</a>
+                    <a href="register" class="btn btn--secondary btn--large">Зарегистрироваться</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <a href="index.html" class="logo logo--footer">
+                        <span class="logo__title">Python</span>
+                        <span class="logo__subtitle">первые программы</span>
+                    </a>
+                    <p class="footer__about">Бесплатное обучающее веб-приложение для начинающих программистов. Создано в рамках преддипломной практики на базе МКОУ СОШ №15 г.о. Нальчик.</p>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Разделы сайта</h4>
+                    <ul class="footer__nav">
+                        <li><a href="lessons.html">Уроки</a></li>
+                        <li><a href="reference.html">Справочник</a></li>
+                        <li><a href="examples.html">Примеры кода</a></li>
+                        <li><a href="practice.html">Практика</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Полезные ссылки</h4>
+                    <ul class="footer__nav">
+                        <li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Официальный сайт Python</a></li>
+                        <li><a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Документация Python</a></li>
+                        <li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Скачать Python</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Место практики</h4>
+                    <address class="footer__address">
+                        <p>МКОУ СОШ №15</p><p>г.о. Нальчик</p><p>Руководитель: Бачиева Ф.А.</p>
+                    </address>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">Python: первые программы.</p>
+                <p class="footer__author">Гергоков Алихан Жамбулатович, специальность «Информационные системы и программирование»</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 7: Цикл for — Python: первые программы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo">
+                <div class="logo__icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 28C8 30 10 32 14 32H18L18 28L14 28C12 28 12 26 12 24V20C12 16 8 14 8 10C8 6 12 4 16 4H24C28 4 32 6 32 10V14C32 16 30 18 26 18H22L22 22L26 22C30 22 32 24 32 28C32 32 28 34 24 34H16" stroke="#306998" stroke-width="2.5" fill="none"/>
+                        <path d="M32 12C32 10 30 8 26 8H22L22 12L26 12C28 12 28 14 28 16V20C28 24 32 26 32 30C32 34 28 36 24 36H16C12 36 8 34 8 30V26C8 24 10 22 14 22H18L18 18L14 18C10 18 8 16 8 12" stroke="#FFD43B" stroke-width="2.5" fill="none"/>
+                    </svg>
+                </div>
+                <div class="logo__text">
+                    <span class="logo__title">Python</span>
+                    <span class="logo__subtitle">первые программы</span>
+                </div>
+            </a>
+            <nav class="nav" id="mainNav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="lessons.html" class="nav__link nav__link--active">Уроки</a></li>
+                    <li class="nav__item"><a href="reference.html" class="nav__link">Справочник</a></li>
+                    <li class="nav__item"><a href="examples.html" class="nav__link">Примеры</a></li>
+                    <li class="nav__item"><a href="playground.html" class="nav__link">Редактор</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему оформления">
+                <svg class="theme-toggle__icon theme-toggle__icon--sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg class="theme-toggle__icon theme-toggle__icon--moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+            <button class="burger" id="burgerMenu" aria-label="Открыть меню">
+                <span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="lesson-layout">
+            <aside class="lesson-sidebar" id="lessonSidebar">
+                <div class="lesson-sidebar__header">
+                    <h3 class="lesson-sidebar__title">Содержание курса</h3>
+                    <div class="progress-bar">
+                        <div class="progress-bar__fill" style="width: 60%;"></div>
+                    </div>
+                    <span class="progress-bar__label">Пройдено 6 из 10</span>
+                </div>
+                <nav class="lesson-nav">
+                    <a href="lesson-01.html" class="lesson-nav__link lesson-nav__link--completed">1. Что такое Python</a>
+                    <a href="lesson-02.html" class="lesson-nav__link lesson-nav__link--completed">2. Установка и первый запуск</a>
+                    <a href="lesson-03.html" class="lesson-nav__link lesson-nav__link--completed">3. Переменные и типы данных</a>
+                    <a href="lesson-04.html" class="lesson-nav__link lesson-nav__link--completed">4. Ввод и вывод данных</a>
+                    <a href="lesson-05.html" class="lesson-nav__link lesson-nav__link--completed">5. Условный оператор if-else</a>
+                    <a href="lesson-06.html" class="lesson-nav__link lesson-nav__link--completed">6. Цикл while</a>
+                    <a href="lesson-07.html" class="lesson-nav__link lesson-nav__link--active">7. Цикл for</a>
+                    <a href="lesson-08.html" class="lesson-nav__link">8. Списки</a>
+                    <a href="lesson-09.html" class="lesson-nav__link">9. Функции</a>
+                    <a href="lesson-10.html" class="lesson-nav__link">10. Итоговый проект</a>
+                </nav>
+            </aside>
+
+            <article class="lesson-content">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                    <ol class="breadcrumbs__list">
+                        <li class="breadcrumbs__item"><a href="index.html">Главная</a></li>
+                        <li class="breadcrumbs__item"><a href="lessons.html">Уроки</a></li>
+                        <li class="breadcrumbs__item breadcrumbs__item--current">Урок 7: Цикл for</li>
+                    </ol>
+                </nav>
+
+                <header class="lesson-header">
+                    <h1 class="lesson-title">Урок 7: Цикл for</h1>
+                    <div class="lesson-meta">
+                        <span class="badge badge--time">≈ 20 минут</span>
+                        <span class="badge badge--level">Начальный</span>
+                    </div>
+                </header>
+
+                <div class="goal-block">
+                    <div class="goal-block__icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#306998" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </div>
+                    <div class="goal-block__text">
+                        <strong>Цель урока:</strong> Освоить цикл <code>for</code> и функцию <code>range()</code>. Научиться перебирать строки, диапазоны чисел, использовать <code>enumerate()</code> и вложенные циклы.
+                    </div>
+                </div>
+
+                <section class="lesson-section">
+                    <h2>Цикл for — перебор элементов</h2>
+                    <p>Цикл <code>for</code> — это цикл перебора. Он проходит по каждому элементу последовательности (строке, списку, диапазону чисел) и выполняет тело цикла для каждого из них. В отличие от <code>while</code>, который работает «пока условие истинно», цикл <code>for</code> точно знает, сколько раз нужно повторить действие.</p>
+
+                    <div class="code-block">
+                        <div class="code-block__header"><span class="code-block__lang">Синтаксис</span></div>
+                        <pre class="code-block__body"><code class="language-python">for переменная in последовательность:
+    # тело цикла</code></pre>
+                    </div>
+
+                    <p>Простейший пример — перебор строки (строка — это последовательность символов):</p>
+
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__lang">Python</span>
+                            <button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                        </div>
+                        <pre class="code-block__body"><code class="language-python">word = "Python"
+
+for letter in word:
+    print(letter)</code></pre>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-block__header"><span class="code-block__lang">Результат</span></div>
+                        <pre class="code-block__body code-block__body--output"><code>P
+y
+t
+h
+o
+n</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Функция range() — диапазон чисел</h2>
+                    <p>Чтобы повторить действие определённое количество раз, используют встроенную функцию <code>range()</code>. Она принимает от одного до трёх аргументов:</p>
+
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__lang">Python</span>
+                            <button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                        </div>
+                        <pre class="code-block__body"><code class="language-python"># range(stop) — от 0 до stop-1
+for i in range(5):
+    print(i)   # Выведет: 0, 1, 2, 3, 4
+
+print("---")
+
+# range(start, stop) — от start до stop-1
+for i in range(1, 6):
+    print(i)   # Выведет: 1, 2, 3, 4, 5
+
+print("---")
+
+# range(start, stop, step) — с шагом
+for i in range(0, 11, 2):
+    print(i)   # Выведет: 0, 2, 4, 6, 8, 10</code></pre>
+                    </div>
+
+                    <div class="important-block">
+                        <div class="important-block__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFD43B" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        </div>
+                        <div class="important-block__text">
+                            <strong>Запомни:</strong> <code>range(1, 6)</code> генерирует числа 1, 2, 3, 4, 5 — последнее число (6) <em>не включается</em>. Правая граница не входит в диапазон.
+                        </div>
+                    </div>
+
+                    <p>Можно создать обратный отсчёт, используя отрицательный шаг:</p>
+
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__lang">Python</span>
+                            <button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                        </div>
+                        <pre class="code-block__body"><code class="language-python">print("Обратный отсчёт:")
+for i in range(5, 0, -1):
+    print(i)
+print("Пуск!")</code></pre>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-block__header"><span class="code-block__lang">Результат</span></div>
+                        <pre class="code-block__body code-block__body--output"><code>Обратный отсчёт:
+5
+4
+3
+2
+1
+Пуск!</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Функция enumerate() — элемент и его номер</h2>
+                    <p>Иногда при переборе нужен не только сам элемент, но и его порядковый номер. Функция <code>enumerate()</code> возвращает пары (индекс, элемент).</p>
+
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__lang">Python</span>
+                            <button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                        </div>
+                        <pre class="code-block__body"><code class="language-python">subjects = ["Математика", "Физика", "Информатика", "История"]
+
+for index, subject in enumerate(subjects, start=1):
+    print(f"{index}. {subject}")</code></pre>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-block__header"><span class="code-block__lang">Результат</span></div>
+                        <pre class="code-block__body code-block__body--output"><code>1. Математика
+2. Физика
+3. Информатика
+4. История</code></pre>
+                    </div>
+
+                    <div class="tip-block">
+                        <div class="tip-block__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#48BB78" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+                        </div>
+                        <div class="tip-block__text">
+                            <strong>Параметр start=1</strong> означает, что нумерация начинается с 1. По умолчанию <code>enumerate()</code> считает с нуля.
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Вложенные циклы</h2>
+                    <p>Внутри цикла <code>for</code> можно разместить другой цикл. Это полезно для работы с таблицами и многомерными данными.</p>
+
+                    <div class="code-block">
+                        <div class="code-block__header">
+                            <span class="code-block__lang">Python</span>
+                            <button class="code-block__copy" aria-label="Скопировать код"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                        </div>
+                        <pre class="code-block__body"><code class="language-python"># Таблица умножения на 3, 4, 5
+for i in range(3, 6):
+    for j in range(1, 11):
+        print(f"{i} × {j} = {i * j}")
+    print()  # Пустая строка между таблицами</code></pre>
+                    </div>
+                </section>
+
+                <section class="task-block">
+                    <h2 class="task-block__title">Задание для самопроверки</h2>
+                    <div class="task-block__question">
+                        <p><strong>Вопрос:</strong> Что выведет код <code>for i in range(2, 10, 3): print(i)</code>?</p>
+                    </div>
+                    <button class="btn btn--secondary task-block__toggle" id="showAnswer7">Показать ответ</button>
+                    <div class="task-block__answer" id="answer7" style="display: none;">
+                        <p><strong>Вывод:</strong> 2, 5, 8 (каждое число на отдельной строке).</p>
+                        <p><strong>Пояснение:</strong> <code>range(2, 10, 3)</code> — начало 2, конец (не включая) 10, шаг 3. Числа: 2, 5, 8. Следующее было бы 11, но оно уже не входит в диапазон &lt; 10.</p>
+                    </div>
+                </section>
+
+                <nav class="lesson-navigation">
+                    <a href="lesson-06.html" class="btn btn--secondary lesson-navigation__prev">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                        Предыдущий урок
+                    </a>
+                    <a href="lesson-08.html" class="btn btn--primary lesson-navigation__next">
+                        Следующий урок
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </nav>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col"><a href="index.html" class="logo logo--footer"><span class="logo__title">Python</span><span class="logo__subtitle">первые программы</span></a><p class="footer__about">Бесплатное обучающее веб-приложение для начинающих программистов. Создано в рамках преддипломной практики на базе МКОУ СОШ №15 г.о. Нальчик.</p></div>
+                <div class="footer__col"><h4 class="footer__heading">Разделы сайта</h4><ul class="footer__nav"><li><a href="lessons.html">Уроки</a></li><li><a href="reference.html">Справочник</a></li><li><a href="examples.html">Примеры кода</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Полезные ссылки</h4><ul class="footer__nav"><li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Официальный сайт Python</a></li><li><a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Документация Python</a></li><li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Скачать Python</a></li></ul></div>
+                <div class="footer__col"><h4 class="footer__heading">Место практики</h4><address class="footer__address"><p>МКОУ СОШ №15</p><p>г.о. Нальчик</p><p>Руководитель: Бачиева Ф.А.</p></address></div>
+            </div>
+            <div class="footer__bottom"><p class="footer__copyright">Python: первые программы.</p><p class="footer__author">Гергоков Алихан Жамбулатович, специальность «Информационные системы и программирование»</p></div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script>
+        document.getElementById('showAnswer7').addEventListener('click', function() {
+            const answer = document.getElementById('answer7');
+            if (answer.style.display === 'none') {
+                answer.style.display = 'block';
+                this.textContent = 'Скрыть ответ';
+            } else {
+                answer.style.display = 'none';
+                this.textContent = 'Показать ответ';
+            }
+        });
+    </script>
+</body>
+</html>
